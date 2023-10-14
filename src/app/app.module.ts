@@ -6,11 +6,24 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuardService } from './guard/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AuthService } from 'src/app/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+  ],
+  providers: [
+    AuthGuardService,
+    AuthService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
