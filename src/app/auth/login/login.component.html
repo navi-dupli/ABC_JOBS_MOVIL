@@ -1,3 +1,4 @@
+<p-scrollTop></p-scrollTop>
 <div class="login-container">
   <div
     class="surface-ground flex justify-content-center min-h-screen min-w-screen overflow-hidden"
@@ -7,7 +8,7 @@
         <app-select-language></app-select-language>
       </div>
 
-      <div class="w-full h-full py-8 px-5 sm:px-8">
+      <div class="w-full h-full py-4 px-5 sm:px-8">
         <div class="text-center">
           <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
         </div>
@@ -18,27 +19,26 @@
             alt="Nombre empresa"
             class="mb-3"
           />
-          <div class="text-3xl font-medium mb-3">Ingreso</div>
+          <div class="text-3xl font-medium mb-2">Ingreso</div>
         </div>
 
         <form [formGroup]="login">
-          <label for="login_email" class="block text-xl font-medium mb-2"
+          <label for="login_email" class="block text-xl font-medium mb-1"
             >Correo eléctronico</label
           >
-          <div class="mb-5">
+          <div class="mb-4">
             <div class="p-input-icon-right">
               <input
                 id="login_email"
                 type="text"
                 placeholder="Correo eléctronico*"
                 pInputText
+                class="w-100 mx-auto p-lg"
                 [class]="
-                  'w-full md:w-30rem ' +
-                  (email!.invalid && (email!.dirty || email!.touched)
+                  email!.invalid && (email!.dirty || email!.touched)
                     ? 'ng-dirty'
-                    : '')
+                    : ''
                 "
-                style="padding: 1rem"
                 formControlName="email"
               />
               <i class="pi pi-user"></i>
@@ -56,42 +56,43 @@
             </div>
           </div>
 
-          <label for="login_password" class="block font-medium text-xl mb-2"
+          <label for="login_password" class="block font-medium text-xl mb-1"
             >Contraseña</label
           >
-          <div class="p-input-icon-right mb-5">
-            <p-password
-              id="login_password"
-              placeholder="Contraseña*"
-              [toggleMask]="true"
-              [class]="
-                password!.invalid && (password!.dirty || password!.touched)
-                  ? 'ng-dirty'
-                  : ''
-              "
-              inputStyleClass="w-full p-3 md:w-30rem"
-              formControlName="password"
-            >
-            </p-password>
+          <div class="mb-4">
+            <div class="p-input-icon-right mb-4">
+              <p-password
+                id="login_password"
+                placeholder="Contraseña*"
+                [toggleMask]="true"
+                class="w-100 mx-auto p-lg"
+                [class]="
+                  password!.invalid && (password!.dirty || password!.touched)
+                    ? 'ng-dirty'
+                    : ''
+                "
+                formControlName="password"
+              >
+              </p-password>
 
-            <div
-              class="error-form"
-              *ngIf="
-                password!.invalid && (password!.dirty || password!.touched)
-              "
-            >
-              <span *ngIf="password!.errors!.required">
-                Campo obligatorio
-              </span>
+              <div
+                class="error-form"
+                *ngIf="
+                  password!.invalid && (password!.dirty || password!.touched)
+                "
+              >
+                <span *ngIf="password!.errors!.required">
+                  Campo obligatorio
+                </span>
 
-              <span *ngIf="password!.errors!.minlength">
-                La contraseña debe ser de mínimo 8 caracteres
-              </span>
+                <span *ngIf="password!.errors!.minlength">
+                  La contraseña debe ser de mínimo 8 caracteres
+                </span>
+              </div>
             </div>
           </div>
-
           <div
-            class="flex align-items-center justify-content-between mb-5 gap-5"
+            class="flex align-items-center justify-content-between py-1 mb-4 gap-5"
           >
             <div class="flex align-items-center">
               <p-checkbox
@@ -136,6 +137,4 @@
   </div>
 </div>
 
-<!-- <app-custom-dialog
-  [dataModal]="dataModal">
-</app-custom-dialog> -->
+<app-custom-dialog [dataModal]="dataModal"> </app-custom-dialog>

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,6 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
   ],

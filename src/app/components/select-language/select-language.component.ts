@@ -1,14 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
+interface LanguageOptions {
+  name: string,
+  code: string
+}
+
 @Component({
   selector: 'app-select-language',
   templateUrl: './select-language.component.html',
-  styleUrls: ['./select-language.component.scss'],
+  styleUrls: ['./select-language.component.scss']
 })
-export class SelectLanguageComponent  implements OnInit {
+
+export class SelectLanguageComponent implements OnInit {
+
+  languages!: LanguageOptions[] ;
+  selectedLanguage!: any;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.languages = [
+      {name: 'Español - COL', code: 'spanish'},
+      {name: 'Ingles - USA', code: 'english'},
+    ];
+  }
 
 }
