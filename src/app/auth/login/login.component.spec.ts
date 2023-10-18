@@ -13,7 +13,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [LoginComponent],
-      providers: [AuthService],
+      providers: [AuthService]
     });
 
     fixture = TestBed.createComponent(LoginComponent);
@@ -25,4 +25,5 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

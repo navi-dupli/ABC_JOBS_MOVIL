@@ -13,6 +13,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginRoutingModule } from './login-routing.module';
+import { CustomDialogModule } from 'src/app/components/custom-dialog/custom-dialog.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -25,6 +26,7 @@ import { LoginRoutingModule } from './login-routing.module';
     CheckboxModule,
     ReactiveFormsModule,
     LoginRoutingModule,
+    CustomDialogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService]
