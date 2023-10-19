@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomDialogComponent } from './custom-dialog.component';
 
 describe('CustomDialogComponent', () => {
@@ -8,7 +8,8 @@ describe('CustomDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomDialogComponent ]
+      declarations: [ CustomDialogComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
 
@@ -26,4 +27,36 @@ describe('CustomDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close dialog with success', () => {
+    component.data = {
+      displayModal: true,
+      textModal: 'Success message',
+      iconModal: 'success-icon',
+      typeModal: 'Éxito',
+    };
+
+    let closeEventEmitted = false;
+    component.closeModal.subscribe((result: boolean) => {
+      closeEventEmitted = result;
+    });
+
+    component.closeDialog();
+
+    expect(component.data.displayModal).toBe(false);
+    expect(closeEventEmitted).toBe(true);
+  });
+
+  it('should confirm dialog', () => {
+    let confirmEventEmitted = false;
+    component.confirmModal.subscribe((result: boolean) => {
+      confirmEventEmitted = result;
+    });
+
+    component.confirmDialog();
+
+    expect(confirmEventEmitted).toBe(true);
+    expect(component.data.displayModal).toBe(false);
+  });
+
 });

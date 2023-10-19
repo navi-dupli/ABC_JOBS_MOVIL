@@ -9,12 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { LoginModule } from './auth/login/login.module';
 import { TranslationModule } from './components/translation/translation.module';
 
 export function createTranslateLoader(http: HttpClient) {
