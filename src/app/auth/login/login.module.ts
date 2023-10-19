@@ -16,6 +16,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { CustomDialogModule } from 'src/app/components/custom-dialog/custom-dialog.module';
 import { SelectLanguageModule } from 'src/app/components/select-language/select-language.module';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { TranslationModule } from 'src/app/components/translation/translation.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -30,6 +31,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
     LoginRoutingModule,
     CustomDialogModule,
     ScrollTopModule,
+    TranslationModule,
     SelectLanguageModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
