@@ -1,4 +1,13 @@
 {
-  "greeting": "Hello2",
-  "welcome": "Welcome to my app"
+  "Ingreso": "Ingreso",
+  "Correo": "Correo electrónico",
+  "Contraseña":"Contraseña",
+  "Recuerdame":"Recuerdame",
+  "Olvide_Contraseña":"Olvide mi contraseña",
+  "Registrarme":"Registrarme",
+  "Ingresar":"Ingresar",
+  "Campo_obligatorio": "Campo obligatorio",
+  "correo_incorrecto":"Formato incorrecto, formato esperado aa@dominio.co",
+  "Minimo_contraseña":"La contraseña debe ser de mínimo 8 caracteres",
+  "error_inicio_sesión":"Hubo un error al iniciar sesión"
 }

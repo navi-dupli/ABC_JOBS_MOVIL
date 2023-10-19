@@ -3,10 +3,16 @@ import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectLanguageComponent } from './select-language.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { TranslationModule } from '../translation/translation.module';
 @NgModule({
     imports: [
         CommonModule,
-        DropdownModule
+        DropdownModule,
+        ReactiveFormsModule,
+        FormsModule,
+        TranslationModule
     ],
     declarations: [SelectLanguageComponent],
     exports: [SelectLanguageComponent],

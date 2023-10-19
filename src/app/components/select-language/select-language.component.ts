@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TranslateService } from '@ngx-translate/core';
 interface LanguageOptions {
-  name: string,
-  code: string
+  name: string;
+  code: string;
 }
 
 @Component({
   selector: 'app-select-language',
   templateUrl: './select-language.component.html',
-  styleUrls: ['./select-language.component.scss']
+  styleUrls: ['./select-language.component.scss'],
 })
-
 export class SelectLanguageComponent implements OnInit {
-
-  languages!: LanguageOptions[] ;
+  languages!: LanguageOptions[];
   selectedLanguage!: any;
 
-  constructor() { }
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     this.languages = [
-      {name: 'Español - COL', code: 'spanish'},
-      {name: 'Ingles - USA', code: 'english'},
+      { name: 'Español - COL', code: 'es_col' },
+      { name: 'Ingles - USA', code: 'en_us' },
     ];
   }
 
+  onLanguageChange(event: any) {
+    this.translate.use(event.code);
+  }
 }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
 import { AuthService } from '../../services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     displayModal: false,
   };
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private translate: TranslateService) { }
 
   ngOnInit() {
     this.login = new FormGroup({
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    const textModal = this.translate.instant("error_inicio_sesión");
     this.authService.login(this.email!.value, this.password!.value).subscribe({
       next: (result) => {
         if (result) {
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
       error: (e) => {
         this.dataModal = {
           displayModal: true,
-          textModal: 'Hubo un error al iniciar sesión',
+          textModal: textModal,
           iconModal: 'pi-exclamation-circle',
           typeModal: 'Error',
         };
