@@ -1,0 +1,140 @@
+<p-scrollTop></p-scrollTop>
+<div class="login-container">
+  <div
+    class="surface-ground flex justify-content-center min-h-screen min-w-screen overflow-hidden"
+  >
+    <div class="flex flex-column justify-content-center surface-card">
+      <div class="login-container__language">
+        <app-select-language></app-select-language>
+      </div>
+
+      <div class="w-full h-full py-4 px-5 sm:px-8">
+        <div class="text-center">
+          <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
+        </div>
+
+        <div class="text-center mb-5">
+          <img
+            src="assets/images/nombre.png"
+            alt="Nombre empresa"
+            class="mb-3"
+          />
+          <div class="text-3xl font-medium mb-2">{{ 'Ingreso' | translate }}</div>
+        </div>
+
+        <form [formGroup]="login">
+          <label for="login_email" class="block text-xl font-medium mb-1"
+            >{{ 'Correo' | translate }}*</label
+          >
+          <div class="mb-4">
+            <div class="p-input-icon-right">
+              <input
+                id="login_email"
+                type="text"
+                [placeholder]="'Correo' | translate"
+                pInputText
+                class="w-100 mx-auto p-lg"
+                [class]="
+                  email!.invalid && (email!.dirty || email!.touched)
+                    ? 'ng-dirty'
+                    : ''
+                "
+                formControlName="email"
+              />
+              <i class="pi pi-user"></i>
+            </div>
+
+            <div
+              class="error-form"
+              *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+            >
+              <span *ngIf="email!.errors!.required">{{ 'Campo_obligatorio' | translate }}</span>
+
+              <span *ngIf="email!.errors!.pattern">
+                {{ 'correo_incorrecto' | translate }}
+              </span>
+            </div>
+          </div>
+
+          <label  class="block font-medium text-xl mb-1"
+            >{{ 'Contraseña' | translate }}*</label
+          >
+          <div class="mb-4">
+            <div class="p-input-icon-right mb-4">
+              <p-password
+                id="login_password"
+                [placeholder]="'Contraseña' | translate"
+                [toggleMask]="true"
+                class="w-100 mx-auto p-lg"
+                [class]="
+                  password!.invalid && (password!.dirty || password!.touched)
+                    ? 'ng-dirty'
+                    : ''
+                "
+                formControlName="password"
+              >
+              </p-password>
+
+              <div
+                class="error-form"
+                *ngIf="
+                  password!.invalid && (password!.dirty || password!.touched)
+                "
+              >
+                <span *ngIf="password!.errors!.required">
+                  {{ 'Campo_obligatorio' | translate }}
+                </span>
+
+                <span *ngIf="password!.errors!.minlength">
+                  {{ 'Minimo_contraseña' | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex align-items-center justify-content-between  mb-3 gap-5"
+          >
+            <div class="flex align-items-center">
+              <p-checkbox
+                id="login_rememberme"
+                [binary]="true"
+                styleClass="mr-2"
+              ></p-checkbox>
+              <label >{{ 'Recuerdame' | translate }}</label>
+            </div>
+            <a
+              id="login_forgot_password"
+              class="font-medium ml-2 text-right cursor-pointer forgot"
+              >{{ 'Olvide_Contraseña' | translate }}</a
+            >
+          </div>
+
+          <div class="login-container__btns">
+            <button
+              pButton
+              pRipple
+              type="button"
+              [label]="'Registrarme' | translate"
+              class="p-button-outlined mr-5"
+              [routerLink]="['/']"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              [label]="'Ingresar' | translate"
+              [disabled]="login!.invalid"
+              (click)="onSubmit()"
+            ></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-container__footer">
+    <img src="assets/images/frame.png" alt="" />
+  </div>
+</div>
+
+<app-custom-dialog [dataModal]="dataModal"> </app-custom-dialog>

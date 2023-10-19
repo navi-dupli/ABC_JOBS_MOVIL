@@ -2,17 +2,20 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+      "outDir": "./out-tsc/spec",
+      "lib": [
+          "ES2022",
+          "dom"
+      ],
+      "types": [
+          "jest"
+      ],
+      "module": "commonjs"
   },
-  "files": [
-    "src/test.ts",
-    "src/polyfills.ts"
-  ],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+      "src/**/*.spec.ts",
+      "src/**/*.d.ts"
+  ],
+  "useDefineForClassFields": true,
+  "skipLibCheck": true
 }
