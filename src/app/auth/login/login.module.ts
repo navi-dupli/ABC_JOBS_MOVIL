@@ -13,8 +13,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LoginRoutingModule } from './login-routing.module';
-import { CustomDialogModule } from 'src/app/components/custom-dialog/custom-dialog.module';
-import { SelectLanguageModule } from 'src/app/components/select-language/select-language.module';
+import { CustomDialogModule } from '../../components/custom-dialog/custom-dialog.module';
+import { SelectLanguageModule } from '../../components/select-language/select-language.module'
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { TranslationModule } from 'src/app/components/translation/translation.module';
 

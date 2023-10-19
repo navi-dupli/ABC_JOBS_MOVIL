@@ -4,8 +4,6 @@ import { AuthService } from '../../services/auth/auth.service';
 import { LoginComponent } from './login.component';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
-import { SelectLanguageModule } from 'src/app/components/select-language/select-language.module';
-import { CustomDialogModule } from 'src/app/components/custom-dialog/custom-dialog.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -14,9 +12,9 @@ describe('LoginComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule,, SelectLanguageModule, TranslateModule.forRoot({
+      imports: [HttpClientTestingModule, TranslateModule.forRoot({
         loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
-      }), CustomDialogModule],
+      })],
       declarations: [LoginComponent],
       schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
     });
