@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>     
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="flex justify-content-center mt-5">
+  <div class="flex flex-column justify-content-center surface-card p-5 register-company-container">
+    <div class="text-3xl font-medium mb-3">{{ 'registar_resultados_prueba_tecnica' | translate }}</div>
+    <form [formGroup]="registerTechnicalTest">
+      <label for="test_name" class="block text-xl font-medium mb-2">{{ 'prueba_tecnica' | translate }}</label>
+      <div class="mb-5">
+        <div class="w-full">
+          <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="technicalTestOptions"
+            optionValue="id" optionLabel="name" formControlName="technicalTest"
+            [class]="(technicalTest!.invalid && (technicalTest!.dirty || technicalTest!.touched) ? 'ng-dirty' : '')"></p-dropdown>
+        </div>
+        <div class="error-form" *ngIf="technicalTest!.invalid && (technicalTest!.dirty || technicalTest!.touched)">
+          <span *ngIf="technicalTest!.errors!.required">
+            {{ 'campo_obligatorio' | translate }}
+          </span>
+        </div>
+      </div>
+      <label for="candidate_name" class="block text-xl font-medium mb-2">{{ 'candidato' | translate }}</label>
+      <div class="mb-5">
+        <div class="w-full">
+          <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="candidateOptions" optionValue="id"
+            optionLabel="name" formControlName="candidate"
+            [class]="(candidate!.invalid && (candidate!.dirty || candidate!.touched) ? 'ng-dirty' : '')"></p-dropdown>
+        </div>
+        <div class="error-form" *ngIf="candidate!.invalid && (candidate!.dirty || candidate!.touched)">
+          <span *ngIf="candidate!.errors!.required">
+            {{ 'campo_obligatorio' | translate }}
+          </span>
+        </div>
+      </div>
+      <label for="state" class="block text-xl font-medium mb-2">{{ 'estado' | translate }}</label>
+      <div class="mb-5">
+        <div class="w-full">
+          <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="stateOptions" optionValue="id"
+            optionLabel="name" formControlName="state"
+            [class]="(state!.invalid && (state!.dirty || state!.touched) ? 'ng-dirty' : '')"></p-dropdown>
+        </div>
+        <div class="error-form" *ngIf="state!.invalid && (state!.dirty || state!.touched)">
+          <span *ngIf="state!.errors!.required">
+            {{ 'campo_obligatorio' | translate }}
+          </span>
+        </div>
+      </div>
+      <label for="qualification" class="block text-xl font-medium mb-2">{{ 'calificacion' | translate }}*</label>
+      <div class="mb-5">
+        <div class="w-full">
+          <input id="qualification" type="text" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
+                      (qualification!.invalid && (qualification!.dirty || qualification!.touched) ? 'ng-dirty' : '')"
+            style="padding:1rem" formControlName="qualification">
+        </div>
+
+        <div class="error-form" *ngIf="qualification!.invalid && (qualification!.dirty || qualification!.touched)">
+          <span *ngIf="qualification!.errors!.required">
+            {{ 'campo_obligatorio' | translate }}
+          </span>
+          <span *ngIf="qualification!.errors!.minlength">
+            El nombre del representante debe ser de máximo 50 caracteres
+          </span>
+        </div>
+      </div>
+      <label for="qualification" class="block text-xl font-medium mb-2">{{ 'calificacion' | translate }}*</label>
+      <div class="mb-5">
+        <div class="w-full">
+          <input id="qualification" type="text" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
+                      (qualification!.invalid && (qualification!.dirty || qualification!.touched) ? 'ng-dirty' : '')"
+            style="padding:1rem" formControlName="qualification">
+        </div>
+
+        <div class="error-form" *ngIf="qualification!.invalid && (qualification!.dirty || qualification!.touched)">
+          <span *ngIf="qualification!.errors!.required">
+            {{ 'campo_obligatorio' | translate }}
+          </span>
+          <span *ngIf="qualification!.errors!.minlength">
+            El nombre del representante debe ser de máximo 50 caracteres
+          </span>
+        </div>
+      </div>
+      <div class="flex justify-content-end">
+        <button 
+            pButton 
+            pRipple 
+            type="button" 
+            label="Cancelar" 
+            class="p-button-outlined mr-5" 
+            [routerLink]="['/']">
+        </button>
+        <button 
+            pButton 
+            pRipple 
+            type="button" 
+            label="Guardar" 
+            [disabled]="registerTechnicalTest.invalid"
+            (click)="onSubmit()">
+        </button>
+    </div>
+    </form>
+  </div>
+</div>

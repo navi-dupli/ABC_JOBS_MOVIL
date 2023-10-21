@@ -19,19 +19,19 @@
             alt="Nombre empresa"
             class="mb-3"
           />
-          <div class="text-3xl font-medium mb-2">{{ 'Ingreso' | translate }}</div>
+          <div class="text-3xl font-medium mb-2">{{ 'ingreso' | translate }}</div>
         </div>
 
         <form [formGroup]="login">
           <label for="login_email" class="block text-xl font-medium mb-1"
-            >{{ 'Correo' | translate }}*</label
+            >{{ 'correo' | translate }}*</label
           >
           <div class="mb-4">
             <div class="p-input-icon-right">
               <input
                 id="login_email"
                 type="text"
-                [placeholder]="'Correo' | translate"
+                [placeholder]="'correo' | translate"
                 pInputText
                 class="w-100 mx-auto p-lg"
                 [class]="
@@ -100,7 +100,7 @@
                 [binary]="true"
                 styleClass="mr-2"
               ></p-checkbox>
-              <label >{{ 'Recuerdame' | translate }}</label>
+              <label >{{ 'recuerdame' | translate }}</label>
             </div>
             <a
               id="login_forgot_password"

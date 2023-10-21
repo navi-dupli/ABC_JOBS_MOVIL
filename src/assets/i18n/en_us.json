@@ -1,13 +1,20 @@
 {
-  "Ingreso": "Login",
-  "Correo": "E-mail",
+  "ingreso": "Login",
+  "correo": "E-mail",
   "Contraseña":"Password",
-  "Recuerdame":"Remember me",
+  "recuerdame":"Remember me",
   "Olvide_Contraseña":"Forgot my password",
   "Registrarme":"Sing Up",
   "Ingresar":"Sing In",
   "Campo_obligatorio": "Required field",
   "correo_incorrecto":"Incorrect format, expected format aa@domain.co",
   "Minimo_contraseña":"The password must be at least 8 characters",
-  "error_inicio_sesión":"There was an error logging in"
+  "error_inicio_sesión":"There was an error logging in",
+  "registar_resultados_prueba_tecnica":"Register technical test results",
+  "prueba_tecnica": "Technical test",
+  "seleccione_una_opcion": "Select an option",
+  "campo_obligatorio":"Obligatory field",
+  "candidato":"Candidate",
+  "estado": "State",
+  "calificacion": "qualification"
 }
