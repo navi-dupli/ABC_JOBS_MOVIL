@@ -11,11 +11,6 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 're',
-    loadChildren: () =>
-      import('./test/test-routing.module').then((m) => m.TestPageRoutingModule),
-  },
-  {
     path: 'iniciar-sesion',
     loadChildren: () =>
       import('./auth/login/login.module').then((m) => m.LoginModule),

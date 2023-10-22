@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,10 +9,10 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  constructor(private menu: MenuController) {}
+  constructor(private menu: MenuController, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.menu.enable(true, 'menuId'); 
+    this.menu.enable(true, 'menuId');
   }
 
   appPages = [
@@ -25,5 +27,10 @@ export class MenuComponent {
       icon: 'information-circle',
     },
   ];
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/iniciar-sesion']);
+  }
 
 }

@@ -18,5 +18,7 @@
   "calificacion": "Calificación",
   "observaciones": "Observaciones",
   "confirma_registar_resultados_prueba_tecnica": "¿Desea registrar el resultado de una prueba técnica?",
-  "Confirmación": "Confirmación"
+  "confirmacion": "Confirmación",
+  "guardar": "Guardar",
+  "cancelar": "Cancelar"
 }

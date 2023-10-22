@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CandidateModel } from 'src/app/models/candidate.model';
 import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
-import { StateTechnicalTestModel, TechnicalTestModel } from 'src/app/models/technical-test.model';
+import { ResultTechnicalTestModel, StateTechnicalTestModel, TechnicalTestModel } from 'src/app/models/technical-test.model';
 import { CandidateService } from 'src/app/services/candidates/candidate.service';
 import { TechnicalTestService } from 'src/app/services/test/technical-test.service';
 
@@ -57,10 +57,68 @@ export class RegisterTechnicalTestComponent implements OnInit {
     }
   }
 
+  confirmModal(event: boolean) {
+    if (event) {
+      const local = localStorage.getItem('currentUser');
+      let currentUser: any;
+      if (local !== null) {
+        currentUser = JSON.parse(local);
+      }
+      let form: ResultTechnicalTestModel = {
+        observations: this.registerTechnicalTest.get("observations")?.value,
+        qualify: this.registerTechnicalTest.get("qualification")?.value,
+        qualifying_user_id: this.registerTechnicalTest.get("candidate")?.value,
+        state: this.registerTechnicalTest.get("state")?.value,
+        test_id: this.registerTechnicalTest.get("technicalTest")?.value,
+        user_id: currentUser.id
+      }
+      this.technicalTestService.registerResultTechnicalTest(form).subscribe({
+        next: (result) => {
+          if (result) {
+            this.dataModal = {
+              displayModal: true,
+              textModal: 'Empresa registrada con éxito',
+              iconModal: 'pi-check',
+              typeModal: 'Éxito'
+            }
+          }
+        },
+        error: (e) => {
+          console.log(e)
+          if (e.status === 400) {
+            this.dataModal = {
+              displayModal: true,
+              textModal: e.error.message,
+              iconModal: 'pi-exclamation-circle',
+              typeModal: 'Error'
+            }
+          } else {
+            this.dataModal = {
+              displayModal: true,
+              textModal: 'Hubo un error al registrar la empresa',
+              iconModal: 'pi-exclamation-circle',
+              typeModal: 'Error'
+            }
+          }
+        }
+      }); 
+    }
+  }
+
   getCandidate() {
     this.candidateService.getCandidates().subscribe(result => {
       this.candidateOptions = result;
     });
+  }
+
+  closeModal(event: boolean) {
+    if (event) {
+      this.clearForm();
+    }
+  }
+
+  clearForm() {
+    this.registerTechnicalTest.reset();
   }
 
   getTechnicalTest() {

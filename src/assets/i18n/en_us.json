@@ -18,5 +18,7 @@
   "calificacion": "qualification",
   "observaciones": "Observations",
   "confirma_registar_resultados_prueba_tecnica": "Do you want to record the result of a technical test?",
-  "Confirmación": "Confirmation"
+  "confirmacion": "Confirmation",
+  "guardar": "Save",
+  "cancelar": "Cancel"
 }

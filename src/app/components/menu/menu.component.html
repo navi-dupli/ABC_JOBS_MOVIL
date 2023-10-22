@@ -13,7 +13,7 @@
             Inicio
           </ion-label>
         </ion-item>
-        <ion-item [routerDirection]="'root'" [routerLink]="'/re'">
+        <ion-item [routerDirection]="'root'" [routerLink]="'/registar-resultado-prueba-tecnica'">
           <ion-icon slot="start" [name]="'list'"></ion-icon>
           <ion-label>
             Registar resultado
@@ -22,4 +22,10 @@
       </ion-menu-toggle>
     </ion-list>
     <app-select-language></app-select-language>
+    <ion-item  (click)="logout()" >
+      <ion-icon slot="start" [name]="'list'"></ion-icon>
+      <ion-label>
+        Salir
+      </ion-label>
+    </ion-item>
   </ion-content>

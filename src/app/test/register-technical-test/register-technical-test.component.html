@@ -54,7 +54,7 @@
       <label for="qualification" class="block text-xl font-medium mb-2">{{ 'calificacion' | translate }}*</label>
       <div class="mb-5">
         <div class="w-full">
-          <input id="qualification" type="text" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
+          <input id="qualification" type="number" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
                       (qualification!.invalid && (qualification!.dirty || qualification!.touched) ? 'ng-dirty' : '')"
             style="padding:1rem" formControlName="qualification">
         </div>
@@ -90,7 +90,7 @@
             pButton 
             pRipple 
             type="button" 
-            label="Cancelar" 
+            [label]="'cancelar' | translate"
             class="p-button-outlined mr-5" 
             [routerLink]="['/']">
         </button>
@@ -98,7 +98,7 @@
             pButton 
             pRipple 
             type="button" 
-            label="Guardar" 
+            [label]="'guardar' | translate"
             [disabled]="registerTechnicalTest.invalid"
             (click)="onSubmit()">
         </button>
@@ -106,4 +106,8 @@
     </form>
   </div>
 </div>
-<app-custom-dialog [dataModal]="dataModal"> </app-custom-dialog>
+<app-custom-dialog
+        [dataModal]="dataModal"
+        (closeModal)="closeModal($event)"
+        (confirmModal)="confirmModal($event)">
+</app-custom-dialog>
