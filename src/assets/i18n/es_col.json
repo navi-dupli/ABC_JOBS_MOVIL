@@ -25,5 +25,7 @@
   "resultado_prueba_tecnica_almacenado_con_exito": " Resultado de prueba técnica almacenado con exito",
   "error_almacenandoo_resultado_prueba_tecnica": " Error almacenando resultado prueba técnica",
   "error_formato_calificacion":"Formato incorrecto, el valor debe ser numerico",
-  "maximo_observaciones":"Las observaciones pueden ser máximo de 500 caracteres"
+  "maximo_observaciones":"Las observaciones pueden ser máximo de 500 caracteres",
+  "inicio": "Inicio",
+  "registar_resultado":"Registar resultados"
 }

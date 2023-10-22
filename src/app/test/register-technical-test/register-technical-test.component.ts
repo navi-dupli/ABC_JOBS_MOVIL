@@ -6,6 +6,7 @@ import { CustomDialogModel } from '../../models/custom-dialog.model';
 import { ResultTechnicalTestModel, StateTechnicalTestModel, TechnicalTestModel } from 'src/app/models/technical-test.model';
 import { CandidateService } from '../../services/candidates/candidate.service';
 import { TechnicalTestService } from '../../services/test/technical-test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-technical-test',
@@ -21,7 +22,8 @@ export class RegisterTechnicalTestComponent implements OnInit {
   dataModal: CustomDialogModel = {
     displayModal: false
   }
-  constructor(private candidateService: CandidateService,
+  constructor(private router: Router,
+    private candidateService: CandidateService,
     private technicalTestService: TechnicalTestService,
     private translate: TranslateService) { }
 
@@ -42,7 +44,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
       technicalTest: new FormControl('', [Validators.required]),
       candidate: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
-      qualification: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10),Validators.pattern(/^[0-9]*(\.[0-9]+)?$/),]),
+      qualification: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10), Validators.pattern(/^[0-9]*(\.[0-9]+)?$/),]),
       observations: new FormControl('', [Validators.required, Validators.maxLength(500)]),
     })
   }
@@ -131,6 +133,11 @@ export class RegisterTechnicalTestComponent implements OnInit {
     this.technicalTestService.getTechnicalTest().subscribe(result => {
       this.technicalTestOptions = result;
     });
+  }
+
+  cancelForm() {
+    sessionStorage.setItem('hasReloaded', 'false')
+    this.router.navigateByUrl('/');
   }
 
 
