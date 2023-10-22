@@ -9,10 +9,10 @@
   </ion-toolbar>
 </ion-header>
 <div class="flex justify-content-center mt-5">
-  <div class="flex flex-column justify-content-center surface-card p-5 register-company-container">
+  <div class="flex flex-column justify-content-center surface-card p-5 register-result-test-container ">
     <div class="text-3xl font-medium text-center mb-3">{{ 'registar_resultados_prueba_tecnica' | translate }}</div>
     <form [formGroup]="registerTechnicalTest">
-      <label  class="block text-xl font-medium mb-2">{{ 'prueba_tecnica' | translate }}*</label>
+      <label  class="block text-xl font-medium mb-2 py-2">{{ 'prueba_tecnica' | translate }}*</label>
       <div class="mb-5">
         <div class="w-full">
           <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="technicalTestOptions"
