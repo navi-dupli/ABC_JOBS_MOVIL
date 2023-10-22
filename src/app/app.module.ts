@@ -15,6 +15,7 @@ import { TestModule } from './test/test.module';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { SelectLanguageModule } from './components/select-language/select-language.module';
+import { HomePageModule } from './home/home.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -41,6 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
     IonicModule.forRoot(),
     AppRoutingModule,
     SelectLanguageModule,
+    HomePageModule
   ],
   providers: [
     AuthGuardService,
