@@ -29,7 +29,7 @@
       <div class="mb-5">
         <div class="w-full">
           <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="candidateOptions" optionValue="id"
-            optionLabel="names" formControlName="candidate"
+            optionLabel="totalName" formControlName="candidate"
             [class]="(candidate!.invalid && (candidate!.dirty || candidate!.touched) ? 'ng-dirty' : '')"></p-dropdown>
         </div>
         <div class="error-form" *ngIf="candidate!.invalid && (candidate!.dirty || candidate!.touched)">
@@ -54,7 +54,7 @@
       <label for="qualification" class="block text-xl font-medium mb-2">{{ 'calificacion' | translate }}*</label>
       <div class="mb-5">
         <div class="w-full">
-          <input id="qualification" type="number" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
+          <input id="qualification" type="text" [placeholder]="'calificacion' | translate " pInputText [class]="'w-full ' + 
                       (qualification!.invalid && (qualification!.dirty || qualification!.touched) ? 'ng-dirty' : '')"
             style="padding:1rem" formControlName="qualification">
         </div>
@@ -63,8 +63,11 @@
           <span *ngIf="qualification!.errors!.required">
             {{ 'campo_obligatorio' | translate }}
           </span>
-          <span *ngIf="qualification!.errors!.minlength">
-            El nombre del representante debe ser de máximo 50 caracteres
+          <span *ngIf="qualification!.errors!.min || qualification!.errors!.max">
+            {{ 'maximo_minimo_calificacion' | translate }}
+          </span>
+          <span *ngIf="qualification!.errors!.pattern">
+            {{ 'error_formato_calificacion' | translate }}
           </span>
         </div>
       </div>
@@ -80,8 +83,8 @@
           <span *ngIf="observations!.errors!.required">
             {{ 'campo_obligatorio' | translate }}
           </span>
-          <span *ngIf="observations!.errors!.minlength">
-            El nombre del representante debe ser de máximo 50 caracteres
+          <span *ngIf="observations!.errors!.maxlength">
+            {{ 'maximo_observaciones' | translate }}
           </span>
         </div>
       </div>

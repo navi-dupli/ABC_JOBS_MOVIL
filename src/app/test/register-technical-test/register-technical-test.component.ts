@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { CandidateModel } from 'src/app/models/candidate.model';
-import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
+import { CandidateModel } from '../../models/candidate.model';
+import { CustomDialogModel } from '../../models/custom-dialog.model';
 import { ResultTechnicalTestModel, StateTechnicalTestModel, TechnicalTestModel } from 'src/app/models/technical-test.model';
-import { CandidateService } from 'src/app/services/candidates/candidate.service';
-import { TechnicalTestService } from 'src/app/services/test/technical-test.service';
+import { CandidateService } from '../../services/candidates/candidate.service';
+import { TechnicalTestService } from '../../services/test/technical-test.service';
 
 @Component({
   selector: 'app-register-technical-test',
@@ -31,19 +31,19 @@ export class RegisterTechnicalTestComponent implements OnInit {
     this.stateOptions = [
       {
         state: "Aprobada",
-        value: "APPROVED",
+        value: "aprobada",
       },
       {
         state: "Reprobada",
-        value: "FAILED",
+        value: "fallida",
       },
     ]
     this.registerTechnicalTest = new FormGroup({
       technicalTest: new FormControl('', [Validators.required]),
       candidate: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
-      qualification: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      observations: new FormControl('', [Validators.required, Validators.maxLength(300)]),
+      qualification: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10),Validators.pattern(/^[0-9]*(\.[0-9]+)?$/),]),
+      observations: new FormControl('', [Validators.required, Validators.maxLength(500)]),
     })
   }
 
@@ -75,9 +75,10 @@ export class RegisterTechnicalTestComponent implements OnInit {
       this.technicalTestService.registerResultTechnicalTest(form).subscribe({
         next: (result) => {
           if (result) {
+            const textModal = this.translate.instant("resultado_prueba_tecnica_almacenado_con_exito");
             this.dataModal = {
               displayModal: true,
-              textModal: 'Empresa registrada con éxito',
+              textModal: textModal,
               iconModal: 'pi-check',
               typeModal: 'Éxito'
             }
@@ -93,21 +94,26 @@ export class RegisterTechnicalTestComponent implements OnInit {
               typeModal: 'Error'
             }
           } else {
+            const textModal = this.translate.instant("error_almacenandoo_resultado_prueba_tecnica");
             this.dataModal = {
               displayModal: true,
-              textModal: 'Hubo un error al registrar la empresa',
+              textModal: textModal,
               iconModal: 'pi-exclamation-circle',
               typeModal: 'Error'
             }
           }
         }
-      }); 
+      });
     }
   }
 
   getCandidate() {
     this.candidateService.getCandidates().subscribe(result => {
       this.candidateOptions = result;
+      for (let index = 0; index < this.candidateOptions.length; index++) {
+        let candidate = this.candidateOptions[index];
+        this.candidateOptions[index].totalName = candidate.names + " " + candidate.surnames;
+      }
     });
   }
 

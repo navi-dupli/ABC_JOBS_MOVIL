@@ -16,7 +16,7 @@ export class CustomDialogComponent implements OnInit {
   ref!: DynamicDialogRef;
   data!: CustomDialogModel;
   headerName: any
-  constructor(private translate: TranslateService) { }
+  constructor() { }
   ngOnInit(): void {
   }
 

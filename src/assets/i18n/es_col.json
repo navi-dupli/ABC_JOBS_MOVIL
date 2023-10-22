@@ -20,5 +20,10 @@
   "confirma_registar_resultados_prueba_tecnica": "¿Desea registrar el resultado de una prueba técnica?",
   "confirmacion": "Confirmación",
   "guardar": "Guardar",
-  "cancelar": "Cancelar"
+  "cancelar": "Cancelar",
+  "maximo_minimo_calificacion": "La calificación debe estar entre 0 y 10 puntos",
+  "resultado_prueba_tecnica_almacenado_con_exito": " Resultado de prueba técnica almacenado con exito",
+  "error_almacenandoo_resultado_prueba_tecnica": " Error almacenando resultado prueba técnica",
+  "error_formato_calificacion":"Formato incorrecto, el valor debe ser numerico",
+  "maximo_observaciones":"Las observaciones pueden ser máximo de 500 caracteres"
 }
