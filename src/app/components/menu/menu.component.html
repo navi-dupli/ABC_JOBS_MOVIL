@@ -1,13 +1,20 @@
-
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="menu-content">
+<ion-header>
+  <ion-toolbar>
+    <div class="w-full h-full py-8 px-3 sm:px-4 ">
+      <div class="text-center">
+        <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
+      </div>
+      <div class="text-center mb-5">
+        <img src="assets/images/nombre.png" alt="Nombre empresa" class="mb-3" />
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="menu-content">
+  <div class="color-b">
     <ion-list>
       <ion-menu-toggle auto-hide="false">
-        <ion-item [routerDirection]="'root'" [routerLink]="'/home'">
+        <ion-item [routerDirection]="'root'" [routerLink]="'/'">
           <ion-icon slot="start" [name]="'home'"></ion-icon>
           <ion-label>
             Inicio
@@ -22,10 +29,11 @@
       </ion-menu-toggle>
     </ion-list>
     <app-select-language></app-select-language>
-    <ion-item  (click)="logout()" >
+    <ion-item [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
       <ion-icon slot="start" [name]="'list'"></ion-icon>
       <ion-label>
         Salir
       </ion-label>
     </ion-item>
-  </ion-content>
+  </div>
+</ion-content>

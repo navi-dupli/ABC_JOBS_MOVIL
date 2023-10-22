@@ -29,9 +29,8 @@ export class MenuComponent {
   ];
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/iniciar-sesion']);
     this.menu.enable(false, 'menuId');
+    this.authService.logout();    
   }
 
 }
