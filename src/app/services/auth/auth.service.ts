@@ -13,18 +13,13 @@ export class AuthService {
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     const headers = this.headers;
     const body = {
-      grant_type: environment.grant_type,
-      username,
+      email,
       password,
-      audience: environment.audience,
-      client_id: environment.client_id,
-      client_secret: environment.client_secret,
-      scope: 'openid profile email'
     };
-    return this.http.post<any>(`${environment.url_auth}/oauth/token`, body, { headers });
+    return this.http.post<any>(`${environment.url_api}/login`, body, { headers });
   }
 
   logout() {

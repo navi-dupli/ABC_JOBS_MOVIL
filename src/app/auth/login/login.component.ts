@@ -33,10 +33,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const textModal = this.translate.instant("error_inicio_sesión");
+    const textModal = this.translate.instant("error_inicio_sesion");
     this.authService.login(this.email!.value, this.password!.value).subscribe({
       next: (result) => {
         if (result) {
+          console.log(result)
           localStorage.setItem('currentUser', JSON.stringify(result));
           this.router.navigate(['/']);
         }

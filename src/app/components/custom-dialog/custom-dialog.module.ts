@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
     imports: [
         CommonModule,
         DialogModule,
-        ButtonModule
+        ButtonModule,
     ],
     declarations: [CustomDialogComponent],
     exports: [CustomDialogComponent],

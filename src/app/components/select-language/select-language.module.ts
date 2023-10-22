@@ -2,10 +2,10 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { SelectLanguageComponent } from './select-language.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TranslationModule } from '../translation/translation.module';
+
 @NgModule({
     imports: [
         CommonModule,
