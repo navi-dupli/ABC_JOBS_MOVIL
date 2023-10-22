@@ -19,4 +19,14 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should call login service', () => {
+    const username = 'usuarioEjemplo';
+    const password = 'contraseñaSegura';
+  
+    service.login(username, password).subscribe((data) => {
+      expect(data).toBeDefined();
+    });
+  
+  });
 });
