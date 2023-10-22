@@ -48,7 +48,7 @@
               class="error-form"
               *ngIf="email!.invalid && (email!.dirty || email!.touched)"
             >
-              <span *ngIf="email!.errors!.required">{{ 'Campo_obligatorio' | translate }}</span>
+              <span *ngIf="email!.errors!.required">{{ 'campo_obligatorio' | translate }}</span>
 
               <span *ngIf="email!.errors!.pattern">
                 {{ 'correo_incorrecto' | translate }}
@@ -57,13 +57,13 @@
           </div>
 
           <label  class="block font-medium text-xl mb-1"
-            >{{ 'Contraseña' | translate }}*</label
+            >{{ 'contrasena' | translate }}*</label
           >
           <div class="mb-4">
             <div class="p-input-icon-right mb-4">
               <p-password
                 id="login_password"
-                [placeholder]="'Contraseña' | translate"
+                [placeholder]="'contrasena' | translate"
                 [toggleMask]="true"
                 class="w-100 mx-auto p-lg"
                 [class]="
@@ -82,11 +82,11 @@
                 "
               >
                 <span *ngIf="password!.errors!.required">
-                  {{ 'Campo_obligatorio' | translate }}
+                  {{ 'campo_obligatorio' | translate }}
                 </span>
 
                 <span *ngIf="password!.errors!.minlength">
-                  {{ 'Minimo_contraseña' | translate }}
+                  {{ 'minimo_contrasena' | translate }}
                 </span>
               </div>
             </div>
@@ -105,7 +105,7 @@
             <a
               id="login_forgot_password"
               class="font-medium ml-2 text-right cursor-pointer forgot"
-              >{{ 'Olvide_Contraseña' | translate }}</a
+              >{{ 'olvide_contrasena' | translate }}</a
             >
           </div>
 
@@ -114,7 +114,7 @@
               pButton
               pRipple
               type="button"
-              [label]="'Registrarme' | translate"
+              [label]="'registrarme' | translate"
               class="p-button-outlined mr-5"
               [routerLink]="['/']"
             ></button>
@@ -122,7 +122,7 @@
               pButton
               pRipple
               type="button"
-              [label]="'Ingresar' | translate"
+              [label]="'ingresar' | translate"
               [disabled]="login!.invalid"
               (click)="onSubmit()"
             ></button>

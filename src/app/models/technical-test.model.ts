@@ -1,4 +1,9 @@
 export interface TechnicalTestModel {
-    name: string, 
+    name: string,
     id: number,
+}
+
+export interface StateTechnicalTestModel {
+    state: string,
+    value: string,
 }

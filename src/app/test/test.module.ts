@@ -8,6 +8,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { IonicModule } from '@ionic/angular';
+import { CustomDialogModule } from '../components/custom-dialog/custom-dialog.module';
 
 @NgModule({
   declarations: [RegisterTechnicalTestComponent],
@@ -20,7 +21,8 @@ import { IonicModule } from '@ionic/angular';
     DropdownModule,
     InputTextModule,
     IonicModule,
-    ButtonModule
+    ButtonModule,
+    CustomDialogModule
   ],
   exports: [RegisterTechnicalTestComponent]
 })
