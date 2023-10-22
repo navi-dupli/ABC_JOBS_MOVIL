@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>     
     <ion-title>
-      Ionic Blank
+      {{ 'registar_resultado' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -95,7 +95,7 @@
             type="button" 
             [label]="'cancelar' | translate"
             class="p-button-outlined mr-5" 
-            [routerLink]="['/']">
+            (click)="cancelForm()">
         </button>
         <button 
             pButton 

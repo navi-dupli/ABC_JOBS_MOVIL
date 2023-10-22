@@ -30,8 +30,7 @@ export class MenuComponent {
 
   logout() {
     this.menu.enable(false, 'menuId');
-    this.authService.logout();
-    
+    this.authService.logout();    
   }
 
 }

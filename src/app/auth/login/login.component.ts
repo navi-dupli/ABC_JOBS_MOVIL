@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     displayModal: false,
   };
 
-  constructor(private router: Router, private authService: AuthService, private translate: TranslateService) { }
+  constructor(private router: Router, private authService: AuthService,
+    private translate: TranslateService) { }
 
   ngOnInit() {
     this.login = new FormGroup({
@@ -39,7 +41,8 @@ export class LoginComponent implements OnInit {
         if (result) {
           console.log(result)
           localStorage.setItem('currentUser', JSON.stringify(result));
-          this.router.navigate(['/']);
+          sessionStorage.setItem('hasReloaded', 'false')
+          this.router.navigateByUrl('/');
         }
       },
       error: (e) => {

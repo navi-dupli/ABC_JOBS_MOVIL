@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor() { }
+  ngOnInit() {
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
+
+    if (hasReloaded=="false") {
+      window.location.reload();
+      sessionStorage.setItem('hasReloaded', 'true');
+    }
+  }
 
 }
