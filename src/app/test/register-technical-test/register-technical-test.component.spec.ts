@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RegisterTechnicalTestComponent } from './register-technical-test.component';
 import { CandidateService } from '../../services/candidates/candidate.service';
 import { TechnicalTestService } from '../../services/test/technical-test.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CustomDialogModule } from '../../components/custom-dialog/custom-dialog.module';
 import { TranslationModule } from '../../components/translation/translation.module';
+import { of, throwError } from 'rxjs';
 
 describe('RegisterTechnicalTestComponent', () => {
   let component: RegisterTechnicalTestComponent;
@@ -19,8 +20,16 @@ describe('RegisterTechnicalTestComponent', () => {
     TestBed.configureTestingModule({
       declarations: [RegisterTechnicalTestComponent],
       imports: [HttpClientTestingModule, TranslateModule.forRoot({
-        loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
-      }), CustomDialogModule, TranslationModule],
+        loader: {
+          provide: TranslateLoader,
+          useValue: {
+            getTranslation: (lang: string) => {
+              return of({ 'confirma_registar_resultados_prueba_tecnica': '¿Desea registrar el resultado de una prueba técnica?' });
+            }
+          }
+        }
+      }), 
+      CustomDialogModule, TranslationModule],
       providers: [CandidateService, TechnicalTestService]
     }).compileComponents();
 
@@ -33,5 +42,90 @@ describe('RegisterTechnicalTestComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call confirmModal and set dataModal on success', () => {
+    const testFormValue = {
+      observations: 'Observation',
+      qualification: 90,
+      candidate: 1,
+      state: 'Pass',
+      technicalTest: 2
+    };
+
+    const mockResponse = true;
+    jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(of(mockResponse));
+
+    component.registerTechnicalTest.setValue(testFormValue);
+
+    component.confirmModal(true);
+
+    expect(component.dataModal.displayModal).toBe(true);
+  });
+
+  it('should call confirmModal and set dataModal on error with status 400', () => {
+    const testFormValue = {
+      observations: 'Observation',
+      qualification: 90,
+      candidate: 1,
+      state: 'Pass',
+      technicalTest: 2
+    };
+
+    const mockError = {
+      status: 400,
+      error: { message: 'Validation error' }
+    };
+
+    jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
+
+    component.registerTechnicalTest.setValue(testFormValue);
+
+    component.confirmModal(true);
+
+    expect(component.dataModal.displayModal).toBe(true);
+  });
+
+  it('should call confirmModal and set dataModal on generic error', () => {
+    const testFormValue = {
+      observations: 'Observation',
+      qualification: 90,
+      candidate: 1,
+      state: 'Pass',
+      technicalTest: 2
+    };
+
+    const mockError = { status: 500 };
+    jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
+
+    component.registerTechnicalTest.setValue(testFormValue);
+
+    component.confirmModal(true);
+
+    expect(component.dataModal.displayModal).toBe(true);
+  });
+
+  it('should call confirmModal and set dataModal on success', () => {
+    const translateService = TestBed.inject(TranslateService);
+    translateService.use('es');
+    component.dataModal.textModal = translateService.instant('campos_incompletos');
+
+    component.onSubmit();
+
+    expect(component.dataModal.displayModal).toBe(true);
+    expect(component.dataModal.textModal).toBe('¿Desea registrar el resultado de una prueba técnica?');
+  });
+
+  it('should call getCandidate and set candidateOptions', () => {
+    const mockCandidates = [{ id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe' }];
+    jest.spyOn(candidateService, 'getCandidates').mockReturnValue(of(mockCandidates));
+    component.getCandidate();
+
+    expect(component.candidateOptions).toEqual(mockCandidates);
+  });
+
+  it('should call closeModal and clear the form', () => {
+    component.closeModal(true);
+    expect(component.clearForm()).toBeUndefined();
   });
 });
