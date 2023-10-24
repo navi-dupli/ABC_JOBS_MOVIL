@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from '../../services/auth/auth.service';
+import jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-menu',
@@ -12,25 +13,57 @@ export class MenuComponent {
   constructor(private menu: MenuController, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.menu.enable(true, 'menuId');
+    this.filterMenu();
   }
 
-  appPages = [
+  model: any[] = [
     {
-      title: 'Home',
-      url: '/menu/home',
-      icon: 'home',
+      label: 'inicio',
+      items: [
+        { label: 'inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'], scope: ['read:users', 'register:project', 'register:company', 'search:candidate'] }
+      ]
     },
     {
-      title: 'About',
-      url: '/menu/about',
-      icon: 'information-circle',
-    },
+      label: 'registar_resultado',
+      items: [
+        { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/registar-resultado-prueba-tecnica'], scope: ['register:technical-test'] }
+      ]
+    }
   ];
 
   logout() {
-    this.menu.enable(false, 'menuId');
-    this.authService.logout();    
+    this.menu.toggle();
+    this.authService.logout();
   }
 
+  getScopes() {
+    const local = localStorage.getItem('currentUser');
+    let currentUser: any;
+    if (local !== null) {
+      currentUser = JSON.parse(local);
+    }
+    const decodeToken: any = jwt_decode(currentUser.access_token);
+    return decodeToken["permissions"] as string[];
+  }
+
+  filterMenu() {
+    const permissions = this.getScopes();
+    this.model = this.model.map((item) => {
+      if (item.items) {
+        item.items = item.items.map((subItem: { scope: any[]; }) => {
+          subItem.scope = subItem.scope.filter((scope: string) => {
+            return permissions.includes(scope);
+          });
+          return subItem.scope.length > 0 ? subItem : null;
+        });
+        item.items = item.items.filter((subItem: null) => { return subItem !== null });
+        return item;
+      } else {
+        return item.scope.find((scope: string) => {
+          return permissions.includes(scope);
+        }) ? item : null;
+      }
+    });
+    console.log(this.model)
+  }
 }
