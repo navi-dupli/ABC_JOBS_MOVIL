@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
+  user: any;
   constructor(private menu: MenuController, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -41,6 +42,11 @@ export class MenuComponent {
     let currentUser: any;
     if (local !== null) {
       currentUser = JSON.parse(local);
+    }
+    this.user = {
+      name: `${currentUser.names} ${currentUser.surnames}`,
+      picture: currentUser.picture,
+      rol: currentUser.rol.replace('_', ' ')
     }
     const decodeToken: any = jwt_decode(currentUser.access_token);
     return decodeToken["permissions"] as string[];

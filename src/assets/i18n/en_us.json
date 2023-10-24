@@ -27,5 +27,6 @@
   "error_formato_calificacion": "Incorrect format, value must be numeric",
   "maximo_observaciones": "Observations can be a maximum of 500 characters",
   "inicio": "Home",
-  "registar_resultado":"Register result"
+  "registar_resultado":"Register result",
+  "salir":"Log out"
 }

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(private router: Router, private authService: AuthService,
-    private translate: TranslateService, private route: ActivatedRoute) { }
+    private translate: TranslateService) { }
 
   ngOnInit() {
     this.login = new FormGroup({
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           console.log(result)
           localStorage.setItem('currentUser', JSON.stringify(result));
           sessionStorage.setItem('hasReloaded', 'false')
-          this.router.navigate(['/'], { relativeTo: this.route });
+          this.router.navigate(['/']);
         }
       },
       error: (e) => {

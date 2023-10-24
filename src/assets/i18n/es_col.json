@@ -27,5 +27,6 @@
   "error_formato_calificacion":"Formato incorrecto, el valor debe ser numerico",
   "maximo_observaciones":"Las observaciones pueden ser máximo de 500 caracteres",
   "inicio": "Inicio",
-  "registar_resultado":"Registar resultados"
+  "registar_resultado":"Registar resultados",
+  "salir":"Salir"
 }
