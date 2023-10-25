@@ -1,7 +1,7 @@
 <ion-content>
-  <div class="login-container">
-    <div class="surface-ground flex justify-content-center min-h-screen min-w-screen overflow-hidden">
-      <div class="flex flex-column justify-content-center surface-card">
+  <div class="login-container ">
+    <div class="surface-ground h-full flex justify-content-center min-h-screen min-w-screen overflow-hidden">
+      <div class="flex flex-column justify-content-center surface-card login-pad">
         <div class="login-container__language">
           <app-select-language></app-select-language>
         </div>
@@ -40,7 +40,7 @@
 
             <label class="block font-medium text-xl mb-1">{{ 'contrasena' | translate }}*</label>
             <div class="mb-4">
-              <div class="p-input-icon-right mb-4 w-full">
+              <div class="p-input-icon-right mb-3 w-full">
                 <p-password id="login_password" [placeholder]="'contrasena' | translate" [toggleMask]="true"
                   class="w-full mx-auto p-lg" [class]="
                   password!.invalid && (password!.dirty || password!.touched)
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex align-items-center justify-content-between  mb-3 gap-5">
+            <div class="flex align-items-center justify-content-between  mb-2 gap-5">
               <div class="flex align-items-center">
                 <p-checkbox id="login_rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
                 <label>{{ 'recuerdame' | translate }}</label>

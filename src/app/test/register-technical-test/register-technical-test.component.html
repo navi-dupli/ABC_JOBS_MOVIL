@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Menu</ion-title>
+    <ion-title>{{ 'registar_resultado' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
-<div class="register-tech flex justify-content-center surface-ground w-full">
-  <div class="flex flex-column justify-content-center surface-card p-5 mt-4  register-result-test-container ">
+<div class="register-tech flex justify-content-center surface-ground ">
+  <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4  register-result-test-container ">
     <div class="text-3xl font-medium text-center mb-3">{{ 'registar_resultados_prueba_tecnica' | translate }}</div>
     <form [formGroup]="registerTechnicalTest">
       <label class="block text-xl font-medium mb-2 py-2">{{ 'prueba_tecnica' | translate }}*</label>

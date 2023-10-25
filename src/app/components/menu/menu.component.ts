@@ -70,6 +70,5 @@ export class MenuComponent {
         }) ? item : null;
       }
     });
-    console.log(this.model)
   }
 }

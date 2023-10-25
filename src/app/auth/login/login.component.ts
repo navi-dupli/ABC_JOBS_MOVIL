@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email!.value, this.password!.value).subscribe({
       next: (result) => {
         if (result) {
-          console.log(result)
           localStorage.setItem('currentUser', JSON.stringify(result));
           sessionStorage.setItem('hasReloaded', 'false')
           this.router.navigate(['/']);
