@@ -1,39 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <div class="w-full h-full py-8 px-3 sm:px-4 ">
-      <div class="text-center">
-        <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
+<ion-menu contentId="main-content">
+  <div class="h-full w-full surface-800 over-menu">
+    <div class="layout-menu__logo mt-3 py-4">
+      <div class="text-center layout-menu__logo-image mb-3">
+        <img src="assets/images/logo.png" alt="Logo">
       </div>
-      <div class="text-center mb-5">
-        <img src="assets/images/nombre.png" alt="Nombre empresa" class="mb-3" />
+
+      <div class="text-center mb-5 layout-menu__logo-txt">
+        <img src="assets/images/nombre.png" alt="Nombre empresa">
       </div>
     </div>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="menu-content">
-  <div class="color-b">
-    <ion-list>
-      <ion-menu-toggle auto-hide="false">
-        <ion-item [routerDirection]="'root'" [routerLink]="'/'">
-          <ion-icon slot="start" [name]="'home'"></ion-icon>
-          <ion-label>
-            Inicio
-          </ion-label>
-        </ion-item>
-        <ion-item [routerDirection]="'root'" [routerLink]="'/registar-resultado-prueba-tecnica'">
-          <ion-icon slot="start" [name]="'list'"></ion-icon>
-          <ion-label>
-            Registar resultado
-          </ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-    </ion-list>
-    <app-select-language></app-select-language>
-    <ion-item [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
-      <ion-icon slot="start" [name]="'list'"></ion-icon>
-      <ion-label>
-        Salir
-      </ion-label>
-    </ion-item>
+    <div class="layout-topbar-menu__option surface-card m-4 pl-4 p-2">
+
+      <p-avatar image="{{user.picture}}" styleClass="mr-2" size="large"></p-avatar>
+      <div>
+        <p class="pb-1">{{user.name}}</p>
+        <span class="pt-1">{{user.rol}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="layout-menu__menu surface-card m-4 border-round-xl">
+        <ion-list>
+          <ion-menu-toogle *ngFor="let i of model ">
+            <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink">
+              <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+              <ion-label class="layout-menuitem-text">
+                {{item.label | translate}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toogle>
+        </ion-list>
+      </div>
+      <div class="m-4  flex justify-content-center">
+        <app-select-language></app-select-language>
+      </div>
+    </div>
   </div>
-</ion-content>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
+      <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
+      
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>

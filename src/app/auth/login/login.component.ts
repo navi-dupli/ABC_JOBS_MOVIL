@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -39,10 +39,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email!.value, this.password!.value).subscribe({
       next: (result) => {
         if (result) {
-          console.log(result)
           localStorage.setItem('currentUser', JSON.stringify(result));
           sessionStorage.setItem('hasReloaded', 'false')
-          this.router.navigateByUrl('/');
+          this.router.navigate(['/']);
         }
       },
       error: (e) => {

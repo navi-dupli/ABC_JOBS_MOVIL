@@ -32,7 +32,7 @@ import { TranslationModule } from 'src/app/components/translation/translation.mo
     CustomDialogModule,
     ScrollTopModule,
     TranslationModule,
-    SelectLanguageModule
+    SelectLanguageModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService]

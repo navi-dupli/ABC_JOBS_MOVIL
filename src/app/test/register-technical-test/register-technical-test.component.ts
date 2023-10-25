@@ -96,7 +96,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
               typeModal: 'Error'
             }
           } else {
-            const textModal = this.translate.instant("error_almacenandoo_resultado_prueba_tecnica");
+            const textModal = this.translate.instant("error_almacenando_resultado_prueba_tecnica");
             this.dataModal = {
               displayModal: true,
               textModal: textModal,
@@ -134,12 +134,6 @@ export class RegisterTechnicalTestComponent implements OnInit {
       this.technicalTestOptions = result;
     });
   }
-
-  cancelForm() {
-    sessionStorage.setItem('hasReloaded', 'false')
-    this.router.navigateByUrl('/');
-  }
-
 
   get technicalTest() { return this.registerTechnicalTest.get('technicalTest'); }
   get candidate() { return this.registerTechnicalTest.get('candidate'); }

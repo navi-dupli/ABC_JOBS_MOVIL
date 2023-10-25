@@ -10,8 +10,7 @@ export class HomePage {
   constructor() { }
   ngOnInit() {
     const hasReloaded = sessionStorage.getItem('hasReloaded');
-
-    if (hasReloaded=="false") {
+    if (hasReloaded == "false") {
       window.location.reload();
       sessionStorage.setItem('hasReloaded', 'true');
     }
