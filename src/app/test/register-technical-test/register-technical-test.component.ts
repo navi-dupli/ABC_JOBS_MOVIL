@@ -28,7 +28,6 @@ export class RegisterTechnicalTestComponent implements OnInit {
     private translate: TranslateService) { }
 
   ngOnInit() {
-    this.getCandidate();
     this.getTechnicalTest();
     this.stateOptions = [
       {
@@ -109,12 +108,23 @@ export class RegisterTechnicalTestComponent implements OnInit {
     }
   }
 
-  getCandidate() {
-    this.candidateService.getCandidates().subscribe(result => {
-      this.candidateOptions = result;
-      for (let index = 0; index < this.candidateOptions.length; index++) {
-        let candidate = this.candidateOptions[index];
-        this.candidateOptions[index].totalName = candidate.names + " " + candidate.surnames;
+  onChangeTest(value: number) {
+    this.getCandidate(value)
+    this.registerTechnicalTest.get('candidate')!.setValue(null)
+  }
+
+  getCandidate(idTest: number) {
+    this.candidateService.getTestCandidates(idTest).subscribe(result => {
+      this.candidateOptions = [];
+      for (let index = 0; index < result.length; index++) {
+        let candidate = result[index].users;
+        this.candidateOptions.push(
+          {
+            names: candidate.names,
+            id: candidate.id,
+            totalName: candidate.names + " " + candidate.surnames,
+            surnames: candidate.surnames
+          })
       }
     });
   }
