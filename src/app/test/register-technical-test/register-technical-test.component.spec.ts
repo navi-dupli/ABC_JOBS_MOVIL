@@ -82,7 +82,7 @@ describe('RegisterTechnicalTestComponent', () => {
 
     const mockError = {
       status: 400,
-      error: {message: 'Validation error'}
+      error: { message: 'Validation error' }
     };
 
     jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
@@ -103,7 +103,7 @@ describe('RegisterTechnicalTestComponent', () => {
       technicalTest: 2
     };
 
-    const mockError = {status: 500};
+    const mockError = { status: 500 };
     jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
 
     component.registerTechnicalTest.setValue(testFormValue);
@@ -125,11 +125,12 @@ describe('RegisterTechnicalTestComponent', () => {
   });
 
   it('should call getCandidate and set candidateOptions', () => {
-    const mockCandidates = [{id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe'}];
-    jest.spyOn(candidateService, 'getCandidates').mockReturnValue(of(mockCandidates));
-    component.getCandidate();
+    const mockCandidates = [{ testID: 1, users: { id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe' } }];
+    const candidate = [{ id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe' }]
+    jest.spyOn(candidateService, 'getTestCandidates').mockReturnValue(of(mockCandidates));
+    component.getCandidate(1);
 
-    expect(component.candidateOptions).toEqual(mockCandidates);
+    expect(component.candidateOptions).toEqual(candidate);
   });
 
   it('should call closeModal and clear the form', () => {
