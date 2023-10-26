@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { CustomDialogModule } from '../components/custom-dialog/custom-dialog.module';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   declarations: [RegisterTechnicalTestComponent],
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     RouterModule,
     ButtonModule,
-    CustomDialogModule
+    CustomDialogModule,
+    ProgressBarModule
   ],
   exports: [RegisterTechnicalTestComponent]
 })
