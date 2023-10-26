@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from '../../services/auth/auth.service';
 import jwt_decode from "jwt-decode";
+import { SessionService } from "../../services/auth/session.service";
 
 @Component({
   selector: 'app-menu',
@@ -11,9 +12,14 @@ import jwt_decode from "jwt-decode";
 })
 export class MenuComponent {
   user: any;
-  constructor(private menu: MenuController, private authService: AuthService, private router: Router) { }
+  constructor(
+    private menu: MenuController, 
+    private authService: AuthService, 
+    private router: Router,
+    private sessionService: SessionService) { }
 
   ngOnInit() {
+    this.user = this.sessionService.getUser();
     this.filterMenu();
   }
 
@@ -38,18 +44,7 @@ export class MenuComponent {
   }
 
   getScopes() {
-    const local = localStorage.getItem('currentUser');
-    let currentUser: any;
-    if (local !== null) {
-      currentUser = JSON.parse(local);
-    }
-    this.user = {
-      name: `${currentUser.names} ${currentUser.surnames}`,
-      picture: currentUser.picture,
-      rol: currentUser.rol.replace('_', ' ')
-    }
-    const decodeToken: any = jwt_decode(currentUser.access_token);
-    return decodeToken["permissions"] as string[];
+    return this.sessionService.getScopes();
   }
 
   filterMenu() {

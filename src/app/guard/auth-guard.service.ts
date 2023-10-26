@@ -6,12 +6,13 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import jwt_decode from "jwt-decode";
+import { SessionService } from '../services/auth/session.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sessionService: SessionService) { }
 
   routes = [{
     url: '/',
@@ -24,14 +25,8 @@ export class AuthGuardService implements CanActivate {
   ]
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('currentUser')) {
-      const local = localStorage.getItem('currentUser');
-      let currentUser: any;
-      if (local !== null) {
-        currentUser = JSON.parse(local);
-      }
-      const decodeToken: any = jwt_decode(currentUser.access_token);
-      const permissions = decodeToken["permissions"] as string[];
+    if (this.sessionService.isAuthenticated()) {
+      const permissions = this.sessionService.getScopes();
       const routeFound = this.routes.find((item) => {
         const scopes = item.scope.find(scope => permissions.includes(scope));
         return item.url === state.url && scopes
