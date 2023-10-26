@@ -24,8 +24,13 @@ export class CandidateService {
   }
 
   getCandidates() {
-    const options = { headers: this.headers}
+    const options = { headers: this.headers }
     return this.http.get<any>(`${environment.url_api}/users-app/candidate`, options);
+  }
+
+  getTestCandidates(idTest: number) {
+    const options = { headers: this.headers }
+    return this.http.get<any>(`${environment.url_api}/users-app/user-test/${idTest}`,options);
   }
 
 }
