@@ -13,7 +13,7 @@
 
       <p-avatar image="{{user.picture}}" styleClass="mr-2" size="large"></p-avatar>
       <div>
-        <p class="pb-1">{{user.name}}</p>
+        <p class="pb-1">{{user.names}}</p>
         <span class="pt-1">{{user.rol}}</span>
       </div>
     </div>
@@ -38,7 +38,7 @@
   <ion-footer class="ion-no-border">
     <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
       <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
-      
+
     </ion-toolbar>
   </ion-footer>
 </ion-menu>

@@ -1,19 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { RegisterTechnicalTestComponent } from './register-technical-test.component';
-import { CandidateService } from '../../services/candidates/candidate.service';
-import { TechnicalTestService } from '../../services/test/technical-test.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CustomDialogModule } from '../../components/custom-dialog/custom-dialog.module';
-import { TranslationModule } from '../../components/translation/translation.module';
-import { of, throwError } from 'rxjs';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {RegisterTechnicalTestComponent} from './register-technical-test.component';
+import {CandidateService} from '../../services/candidates/candidate.service';
+import {TechnicalTestService} from '../../services/test/technical-test.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {CustomDialogModule} from '../../components/custom-dialog/custom-dialog.module';
+import {TranslationModule} from '../../components/translation/translation.module';
+import {of, throwError} from 'rxjs';
+import {DropdownModule} from "primeng/dropdown";
+import {InputTextModule} from "primeng/inputtext";
+import {RouterModule} from "@angular/router";
+import {ButtonModule} from "primeng/button";
 
 describe('RegisterTechnicalTestComponent', () => {
   let component: RegisterTechnicalTestComponent;
   let fixture: ComponentFixture<RegisterTechnicalTestComponent>;
   let candidateService: CandidateService;
   let technicalTestService: TechnicalTestService
-  const currentUser = { access_token: 'your-access-token' };
+  const currentUser = {access_token: 'your-access-token'};
   localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
   beforeEach(() => {
@@ -24,12 +28,16 @@ describe('RegisterTechnicalTestComponent', () => {
           provide: TranslateLoader,
           useValue: {
             getTranslation: (lang: string) => {
-              return of({ 'confirma_registar_resultados_prueba_tecnica': '¿Desea registrar el resultado de una prueba técnica?' });
+              return of({'confirma_registar_resultados_prueba_tecnica': '¿Desea registrar el resultado de una prueba técnica?'});
             }
           }
         }
-      }), 
-      CustomDialogModule, TranslationModule],
+      }),
+        DropdownModule,
+        InputTextModule,
+        ButtonModule,
+        CustomDialogModule,
+        TranslationModule],
       providers: [CandidateService, TechnicalTestService]
     }).compileComponents();
 
@@ -74,7 +82,7 @@ describe('RegisterTechnicalTestComponent', () => {
 
     const mockError = {
       status: 400,
-      error: { message: 'Validation error' }
+      error: {message: 'Validation error'}
     };
 
     jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
@@ -95,7 +103,7 @@ describe('RegisterTechnicalTestComponent', () => {
       technicalTest: 2
     };
 
-    const mockError = { status: 500 };
+    const mockError = {status: 500};
     jest.spyOn(technicalTestService, 'registerResultTechnicalTest').mockReturnValue(throwError(mockError));
 
     component.registerTechnicalTest.setValue(testFormValue);
@@ -117,7 +125,7 @@ describe('RegisterTechnicalTestComponent', () => {
   });
 
   it('should call getCandidate and set candidateOptions', () => {
-    const mockCandidates = [{ id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe' }];
+    const mockCandidates = [{id: 1, names: 'John', surnames: 'Doe', totalName: 'John Doe'}];
     jest.spyOn(candidateService, 'getCandidates').mockReturnValue(of(mockCandidates));
     component.getCandidate();
 

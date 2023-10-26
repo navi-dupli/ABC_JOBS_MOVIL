@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
-import { CandidateModel } from '../../models/candidate.model';
-import { CustomDialogModel } from '../../models/custom-dialog.model';
-import { ResultTechnicalTestModel, StateTechnicalTestModel, TechnicalTestModel } from 'src/app/models/technical-test.model';
-import { CandidateService } from '../../services/candidates/candidate.service';
-import { TechnicalTestService } from '../../services/test/technical-test.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
+import {CandidateModel} from '../../models/candidate.model';
+import {CustomDialogModel} from '../../models/custom-dialog.model';
+import {
+  ResultTechnicalTestModel,
+  StateTechnicalTestModel,
+  TechnicalTestModel
+} from 'src/app/models/technical-test.model';
+import {CandidateService} from '../../services/candidates/candidate.service';
+import {TechnicalTestService} from '../../services/test/technical-test.service';
+import {Router} from '@angular/router';
+import {SessionService} from "../../services/auth/session.service";
 
 @Component({
   selector: 'app-register-technical-test',
@@ -22,10 +27,13 @@ export class RegisterTechnicalTestComponent implements OnInit {
   dataModal: CustomDialogModel = {
     displayModal: false
   }
+
   constructor(private router: Router,
-    private candidateService: CandidateService,
-    private technicalTestService: TechnicalTestService,
-    private translate: TranslateService) { }
+              private candidateService: CandidateService,
+              private technicalTestService: TechnicalTestService,
+              private translate: TranslateService,
+              private sessionService: SessionService) {
+  }
 
   ngOnInit() {
     this.getCandidate();
@@ -61,18 +69,13 @@ export class RegisterTechnicalTestComponent implements OnInit {
 
   confirmModal(event: boolean) {
     if (event) {
-      const local = localStorage.getItem('currentUser');
-      let currentUser: any;
-      if (local !== null) {
-        currentUser = JSON.parse(local);
-      }
       let form: ResultTechnicalTestModel = {
         observations: this.registerTechnicalTest.get("observations")?.value,
         qualify: this.registerTechnicalTest.get("qualification")?.value,
         qualifying_user_id: this.registerTechnicalTest.get("candidate")?.value,
         state: this.registerTechnicalTest.get("state")?.value,
         test_id: this.registerTechnicalTest.get("technicalTest")?.value,
-        user_id: currentUser.id
+        user_id: this.sessionService.getUser()?.id!
       }
       this.technicalTestService.registerResultTechnicalTest(form).subscribe({
         next: (result) => {
@@ -135,9 +138,23 @@ export class RegisterTechnicalTestComponent implements OnInit {
     });
   }
 
-  get technicalTest() { return this.registerTechnicalTest.get('technicalTest'); }
-  get candidate() { return this.registerTechnicalTest.get('candidate'); }
-  get state() { return this.registerTechnicalTest.get('state'); }
-  get qualification() { return this.registerTechnicalTest.get('qualification'); }
-  get observations() { return this.registerTechnicalTest.get('observations'); }
+  get technicalTest() {
+    return this.registerTechnicalTest.get('technicalTest');
+  }
+
+  get candidate() {
+    return this.registerTechnicalTest.get('candidate');
+  }
+
+  get state() {
+    return this.registerTechnicalTest.get('state');
+  }
+
+  get qualification() {
+    return this.registerTechnicalTest.get('qualification');
+  }
+
+  get observations() {
+    return this.registerTechnicalTest.get('observations');
+  }
 }
