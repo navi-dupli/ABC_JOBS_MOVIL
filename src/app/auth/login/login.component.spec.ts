@@ -2,16 +2,14 @@ import { ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoginComponent } from './login.component';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of, throwError } from 'rxjs';
-import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let authService: AuthService;
-  let router: Router;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

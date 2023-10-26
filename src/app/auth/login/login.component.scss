@@ -1,8 +1,9 @@
 :host ::ng-deep .pi-eye,
 :host ::ng-deep .pi-eye-slash {
-    transform:scale(1.6);
+    transform: scale(1.6);
     color: var(--primary-color) !important;
 }
+
 :host ::ng-deep .p-password {
     .p-password-panel {
         display: none !important;
@@ -28,6 +29,10 @@
         }
     }
 
+    .login-pad {
+        padding-bottom: 140px;
+    }
+
     .forgot {
         text-decoration: underline;
         color: var(--text-color);
@@ -38,10 +43,9 @@
         justify-content: flex-end;
     }
 }
+
 ::ng-deep {
     .p-password {
         width: 100%;
     }
 }
-
-

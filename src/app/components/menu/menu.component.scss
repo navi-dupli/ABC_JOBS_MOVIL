@@ -1,3 +1,21 @@
-.menu-content {
-    min-height: 500px;
+.layout-topbar-menu {
+    &__option {
+        display: flex;
+        align-items: center;
+
+        p {
+            margin-bottom: 0;
+        }
+
+    }
+
+}
+
+.over-menu {
+    overflow: auto !important;
+}
+
+ion-title{
+    background-color: var(--surface-500);
+    color: var(--error-color);
 }
