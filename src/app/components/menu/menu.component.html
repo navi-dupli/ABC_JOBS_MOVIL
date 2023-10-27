@@ -9,11 +9,11 @@
         <img src="assets/images/nombre.png" alt="Nombre empresa">
       </div>
     </div>
-    <div class="layout-topbar-menu__option surface-card m-4 pl-4 p-2">
+    <div class="layout-topbar-menu__option surface-card m-4 pl-4 p-2" *ngIf="user">
 
       <p-avatar image="{{user.picture}}" styleClass="mr-2" size="large"></p-avatar>
       <div>
-        <p class="pb-1">{{user.name}}</p>
+        <p class="pb-1">{{user.names}} {{user.surnames}}</p>
         <span class="pt-1">{{user.rol}}</span>
       </div>
     </div>
