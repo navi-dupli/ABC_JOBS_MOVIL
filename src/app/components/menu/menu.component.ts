@@ -29,6 +29,12 @@ export class MenuComponent {
       items: [
         { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/registar-resultado-prueba-tecnica'], scope: ['register:technical-test'] }
       ]
+    },
+    {
+      label: 'citas',
+      items: [
+        { label: 'citas', icon: 'pi pi-fw pi-calendar-times', routerLink: ['/listar-citas'], scope: ['view:appointment'] }
+      ]
     }
   ];
 

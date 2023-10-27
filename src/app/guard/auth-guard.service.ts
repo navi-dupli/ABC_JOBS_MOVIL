@@ -20,6 +20,10 @@ export class AuthGuardService implements CanActivate {
   {
     url: '/registar-resultado-prueba-tecnica',
     scope: ['register:technical-test']
+  },
+  {
+    url: '/listar-citas',
+    scope: ['view:appointment']
   }
   ]
 

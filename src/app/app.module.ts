@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { SelectLanguageModule } from './components/select-language/select-language.module';
 import { HomePageModule } from './home/home.module';
 import { AvatarModule } from "primeng/avatar";
+import { AppointmentsModule } from './appointments/appointments.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -31,6 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     TranslationModule,
     TestModule,
+    AppointmentsModule,
     RouterModule,
     TranslateModule.forRoot({
       loader: {

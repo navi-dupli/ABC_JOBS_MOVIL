@@ -28,5 +28,7 @@
   "maximo_observaciones":"Las observaciones pueden ser máximo de 500 caracteres",
   "inicio": "Inicio",
   "registar_resultado":"Registar resultados",
-  "salir":"Salir"
+  "salir":"Salir",
+  "citas": "Citas",
+  "citas_entrevistas": "Citas entrevistas"
 }
