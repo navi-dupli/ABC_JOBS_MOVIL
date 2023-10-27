@@ -17,6 +17,7 @@ import { CustomDialogModule } from '../../components/custom-dialog/custom-dialog
 import { SelectLanguageModule } from '../../components/select-language/select-language.module'
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { TranslationModule } from 'src/app/components/translation/translation.module';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -33,6 +34,7 @@ import { TranslationModule } from 'src/app/components/translation/translation.mo
     ScrollTopModule,
     TranslationModule,
     SelectLanguageModule,
+    ProgressBarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService]
