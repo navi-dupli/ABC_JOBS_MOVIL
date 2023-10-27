@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { CandidateService } from './candidate.service';
+import { AppointmentsService } from './appointments.service';
 
-describe('CandidateService', () => {
-  let service: CandidateService;
+describe('AppointmentsService', () => {
+  let service: AppointmentsService;
   let httpTestingController: HttpTestingController;
   const currentUser = { access_token: 'your-access-token' };
   localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -11,10 +11,10 @@ describe('CandidateService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [CandidateService],
+      providers: [AppointmentsService],
     });
 
-    service = TestBed.inject(CandidateService);
+    service = TestBed.inject(AppointmentsService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
