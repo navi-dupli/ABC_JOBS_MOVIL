@@ -1,0 +1,52 @@
+<ion-menu [disabled]="disabledMenu" contentId="main-content" (ionWillOpen)="openMenu()">
+  <div class="h-full w-full surface-800 over-menu">
+    <ion-menu-toggle>
+      <div class="mt-2 flex justify-content-end p-2 icon-color">
+        <i class="pi pi-arrow-left"></i>
+      </div>
+    </ion-menu-toggle>
+    <div class="layout-menu__logo mt-1 py-4">
+      <div class="text-center layout-menu__logo-image mb-3">
+        <img src="assets/images/logo.png" alt="Logo">
+      </div>
+
+      <div class="text-center mb-5 layout-menu__logo-txt">
+        <img src="assets/images/nombre.png" alt="Nombre empresa">
+      </div>
+    </div>
+    <div class="layout-topbar-menu__option surface-card m-4 pl-4 p-2" *ngIf="user">
+
+      <p-avatar image="{{user.picture}}" styleClass="mr-2" size="large"></p-avatar>
+      <div>
+        <p class="pb-1">{{user.names}} {{user.surnames}}</p>
+        <span class="pt-1">{{user.rol | translate}}</span>
+      </div>
+    </div>
+    <div>
+      <div class="layout-menu__menu surface-card m-4 border-round-xl">
+        <ion-list>
+          <div *ngFor="let i of model ">
+            <ion-menu-toogle>
+              <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink"
+                (click)="openEnd()">
+                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+                <ion-label class="layout-menuitem-text">
+                  {{item.label | translate}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toogle>
+          </div>
+        </ion-list>
+      </div>
+      <div class="m-4  flex justify-content-center">
+        <app-select-language></app-select-language>
+      </div>
+    </div>
+  </div>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
+      <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
+
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>

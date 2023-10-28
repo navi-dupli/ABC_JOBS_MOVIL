@@ -1,0 +1,25 @@
+.layout-topbar-menu {
+    &__option {
+        display: flex;
+        align-items: center;
+
+        p {
+            margin-bottom: 0;
+        }
+
+    }
+
+}
+
+.over-menu {
+    overflow: auto !important;
+}
+
+ion-title {
+    background-color: var(--surface-506981);
+    color: var(--error-color);
+}
+
+.icon-color {
+    color: var(--primary-color);
+}

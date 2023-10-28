@@ -1,22 +1,34 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './guard/auth-guard.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AddCandidateTeamComponent } from './teams/add-candidate-team/add-candidate-team.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
+    canActivate: [AuthGuardService],
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'iniciar-sesion',
+    loadChildren: () =>
+      import('./auth/login/login.module').then((m) => m.LoginModule),
   },
+  { path: 'notfound', component: NotFoundComponent },
+  { path: '**', redirectTo: '/notfound' },
+  {
+    path: 'asignar-candidato-equipo',
+    component: AddCandidateTeamComponent,
+    canActivate: [AuthGuardService],
+  }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
