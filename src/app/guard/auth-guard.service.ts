@@ -7,6 +7,7 @@ import {
 } from '@angular/router';
 import jwt_decode from "jwt-decode";
 import { SessionService } from '../services/auth/session.service';
+import { MenuComponent } from '../components/menu/menu.component';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,6 @@ export class AuthGuardService implements CanActivate {
         return false;
       }
     }
-
     // usuario no logueado
     this.router.navigate(['/iniciar-sesion']);
     return false;

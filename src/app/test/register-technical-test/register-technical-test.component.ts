@@ -22,6 +22,8 @@ export class RegisterTechnicalTestComponent implements OnInit {
   dataModal: CustomDialogModel = {
     displayModal: false
   }
+  loading = false;
+
   constructor(private router: Router,
     private candidateService: CandidateService,
     private technicalTestService: TechnicalTestService,
@@ -60,6 +62,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
 
   confirmModal(event: boolean) {
     if (event) {
+      this.loading = true;
       const local = localStorage.getItem('currentUser');
       let currentUser: any;
       if (local !== null) {
@@ -130,6 +133,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
   }
 
   closeModal(event: boolean) {
+    this.loading = false;
     if (event) {
       this.clearForm();
     }

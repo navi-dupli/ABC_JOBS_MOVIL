@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   dataModal: CustomDialogModel = {
     displayModal: false,
   };
+  loading = false;
 
   constructor(private router: Router, private authService: AuthService,
     private translate: TranslateService,
@@ -38,9 +39,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const textModal = this.translate.instant("error_inicio_sesion");
+    this.loading = true;
     this.authService.login(this.email!.value, this.password!.value).subscribe({
       next: (result) => {
         if (result) {
+          this.loading = false;
           localStorage.setItem('currentUser', JSON.stringify(result));
           sessionStorage.setItem('hasReloaded', 'false')
           this.sessionService.loadSession();
@@ -48,6 +51,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (e) => {
+        this.loading = false;
         this.dataModal = {
           displayModal: true,
           textModal: textModal,
