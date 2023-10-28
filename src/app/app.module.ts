@@ -17,6 +17,7 @@ import { SelectLanguageModule } from './components/select-language/select-langua
 import { HomePageModule } from './home/home.module';
 import { AvatarModule } from "primeng/avatar";
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddCandidateTeamModule } from './teams/add-candidate-team.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -44,7 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     SelectLanguageModule,
     HomePageModule,
-    AvatarModule
+    AvatarModule,
+    AddCandidateTeamModule
   ],
   providers: [
     AuthGuardService,

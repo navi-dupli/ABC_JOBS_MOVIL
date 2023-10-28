@@ -33,7 +33,7 @@ export class MenuComponent {
     {
       label: 'inicio',
       items: [
-        { label: 'inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'], scope: ['read:users', 'register:project', 'register:company', 'search:candidate'] }
+        { label: 'inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'], scope: ['read:users', 'register:project', 'register:company', 'search:candidate', 'register:candidate'] }
       ]
     },
     {
@@ -41,7 +41,13 @@ export class MenuComponent {
       items: [
         { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/registar-resultado-prueba-tecnica'], scope: ['register:technical-test'] }
       ]
-    }
+    },
+    {
+      label: 'registar_resultado',
+      items: [
+        { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+      ]
+    },
   ];
 
   logout() {
