@@ -1,12 +1,6 @@
-.register-tech {
-
-    ::ng-deep {
-        .p-dropdown {
-            width: 100%;
-        }
+::ng-deep {
+    .p-dropdown,
+    .p-multiselect {
+        width: 100%;
     }
-}
-
-.register-result-test-container {
-    width: 80%;
 }

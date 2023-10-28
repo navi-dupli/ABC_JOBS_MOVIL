@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { AddCandidateTeamComponent } from './add-candidate-team/add-candidate-team.component';
 import { AddCandidateTeamRoutingModule } from './add-candidate-team-routing.module';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [AddCandidateTeamComponent],
@@ -26,6 +27,7 @@ import { AddCandidateTeamRoutingModule } from './add-candidate-team-routing.modu
     ButtonModule,
     CustomDialogModule,
     ProgressBarModule,
+    MultiSelectModule,
     AddCandidateTeamRoutingModule
   ],
   exports: [AddCandidateTeamComponent]

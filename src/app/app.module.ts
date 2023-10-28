@@ -33,6 +33,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     TranslationModule,
     TestModule,
+    AddCandidateTeamModule,
     RouterModule,
     TranslateModule.forRoot({
       loader: {
@@ -45,8 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     SelectLanguageModule,
     HomePageModule,
-    AvatarModule,
-    AddCandidateTeamModule
+    AvatarModule
   ],
   providers: [
     AuthGuardService,
