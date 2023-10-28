@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { GestureController, MenuController } from '@ionic/angular';
 import { AuthService } from '../../services/auth/auth.service';
-import jwt_decode from "jwt-decode";
 import { SessionService } from "../../services/auth/session.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
@@ -12,15 +12,21 @@ import { SessionService } from "../../services/auth/session.service";
 })
 export class MenuComponent {
   user: any;
+  disabledMenu: boolean = false;
   constructor(
-    private menu: MenuController, 
-    private authService: AuthService, 
+    private menu: MenuController,
+    private authService: AuthService,
     private router: Router,
-    private sessionService: SessionService) { }
+    private sessionService: SessionService,
+    private gestureCtrl: GestureController) { }
 
   ngOnInit() {
     this.user = this.sessionService.getUser();
     this.filterMenu();
+  }
+  openEnd() {
+    console.log("aaaaaaaaaaaaa")
+    this.menu.close();
   }
 
   model: any[] = [
@@ -43,9 +49,18 @@ export class MenuComponent {
     this.authService.logout();
   }
 
+  openMenu() {
+    if (this.sessionService.isAuthenticated()) {
+      this.disabledMenu = false
+    } else {
+      this.disabledMenu = true
+    }
+  }
+
   getScopes() {
     return this.sessionService.getScopes();
   }
+
 
   filterMenu() {
     const permissions = this.getScopes();
