@@ -43,9 +43,9 @@ export class MenuComponent {
       ]
     },
     {
-      label: 'registar_resultado',
+      label: 'asignar_candidatos',
       items: [
-        { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+        { label: 'asignar_candidatos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
   ];
