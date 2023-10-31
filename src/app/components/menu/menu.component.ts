@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { GestureController, MenuController } from '@ionic/angular';
 import { AuthService } from '../../services/auth/auth.service';
-import jwt_decode from "jwt-decode";
 import { SessionService } from "../../services/auth/session.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
@@ -12,22 +12,28 @@ import { SessionService } from "../../services/auth/session.service";
 })
 export class MenuComponent {
   user: any;
+  disabledMenu: boolean = false;
   constructor(
-    private menu: MenuController, 
-    private authService: AuthService, 
+    private menu: MenuController,
+    private authService: AuthService,
     private router: Router,
-    private sessionService: SessionService) { }
+    private sessionService: SessionService,
+    private gestureCtrl: GestureController) { }
 
   ngOnInit() {
     this.user = this.sessionService.getUser();
     this.filterMenu();
+  }
+  openEnd() {
+    console.log("aaaaaaaaaaaaa")
+    this.menu.close();
   }
 
   model: any[] = [
     {
       label: 'inicio',
       items: [
-        { label: 'inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'], scope: ['read:users', 'register:project', 'register:company', 'search:candidate'] }
+        { label: 'inicio', icon: 'pi pi-fw pi-home', routerLink: ['/'], scope: ['read:users', 'register:project', 'register:company', 'search:candidate', 'register:candidate'] }
       ]
     },
     {
@@ -41,7 +47,13 @@ export class MenuComponent {
       items: [
         { label: 'citas', icon: 'pi pi-fw pi-calendar-times', routerLink: ['/listar-citas'], scope: ['view:appointment'] }
       ]
-    }
+    },
+    {
+      label: 'asignar_candidatos',
+      items: [
+        { label: 'asignar_candidatos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+      ]
+    },
   ];
 
   logout() {
@@ -49,9 +61,18 @@ export class MenuComponent {
     this.authService.logout();
   }
 
+  openMenu() {
+    if (this.sessionService.isAuthenticated()) {
+      this.disabledMenu = false
+    } else {
+      this.disabledMenu = true
+    }
+  }
+
   getScopes() {
     return this.sessionService.getScopes();
   }
+
 
   filterMenu() {
     const permissions = this.getScopes();

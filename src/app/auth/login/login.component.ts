@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (e) => {
+        this.loading = false;
         this.dataModal = {
           displayModal: true,
           textModal: textModal,

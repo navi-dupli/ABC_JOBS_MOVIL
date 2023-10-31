@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import jwt_decode from "jwt-decode";
-import {CurrentUser, TokenInfo} from "./current-user.interface";
+import { CurrentUser, TokenInfo } from "./current-user.interface";
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +20,7 @@ export class SessionService {
                 this.currentUser = JSON.parse(user) as CurrentUser;
                 if (this.currentUser.access_token) {
                     this.decodedToken = jwt_decode(this.currentUser.access_token) as TokenInfo;
-                    
+
                 }
             }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './guard/auth-guard.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AddCandidateTeamComponent } from './teams/add-candidate-team/add-candidate-team.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
   },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
+  {
+    path: 'asignar-candidato-equipo',
+    component: AddCandidateTeamComponent,
+    canActivate: [AuthGuardService],
+  }
 ];
 
 @NgModule({
