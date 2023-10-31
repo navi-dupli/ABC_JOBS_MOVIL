@@ -39,9 +39,12 @@
   "sin_equipos": "El proyecto seleccionado no tiene equipos relacionados",
   "asignar_candidatos_confirmacion": "¿Desea asignar los candidatos a un equipo?",
   "asignar_candidatos_correctamente": "Los candidatos se han asignado correctamente",
-  "error_asignar_candidatos":"Hubo un error al asignar los candidatos a un equipo",
+  "error_asignar_candidatos": "Hubo un error al asignar los candidatos a un equipo",
   "exito": "Éxito",
   "campos_incompletos": "El formulario tiene campos obligatorios vacios",
   "citas": "Citas",
-  "citas_entrevistas": "Citas entrevistas"
+  "citas_entrevistas": "Citas entrevistas",
+  "cita_finalizada": "Finalizada",
+  "cita_activa": "Activa",
+  "sin_citas": "Aún no tienes ninguna cita"
 }

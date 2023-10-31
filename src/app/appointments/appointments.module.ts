@@ -5,6 +5,7 @@ import { AppointmentsPageRoutingModule } from './appointments-routing.module';
 import { TranslationModule } from '../components/translation/translation.module';
 import { ButtonModule } from 'primeng/button';
 import { IonicModule } from '@ionic/angular';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
   declarations: [ListAppointmentsComponent],
@@ -13,7 +14,8 @@ import { IonicModule } from '@ionic/angular';
     TranslationModule,
     ButtonModule,
     IonicModule,
-    AppointmentsPageRoutingModule
-  ]
+    AppointmentsPageRoutingModule,
+    TagModule
+  ],
 })
 export class AppointmentsModule { }

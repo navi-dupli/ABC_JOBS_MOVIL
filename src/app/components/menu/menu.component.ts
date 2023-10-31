@@ -25,7 +25,6 @@ export class MenuComponent {
     this.filterMenu();
   }
   openEnd() {
-    console.log("aaaaaaaaaaaaa")
     this.menu.close();
   }
 
@@ -49,9 +48,9 @@ export class MenuComponent {
       ]
     },
     {
-      label: 'asignar_candidatos',
+      label: 'equipos',
       items: [
-        { label: 'asignar_candidatos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+        { label: 'equipos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
   ];

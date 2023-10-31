@@ -43,5 +43,8 @@
   "exito": "Success",
   "campos_incompletos": "The form has empty required fields",
   "citas": "Appointments",
-  "citas_entrevistas": "Interview appointments"
+  "citas_entrevistas": "Interview appointments",
+  "cita_finalizada": "Finished",
+  "cita_activa": "Active",
+  "sin_citas": "You don't have any appointment yet"
 }

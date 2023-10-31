@@ -1,0 +1,32 @@
+.list-appointments {
+
+    ::ng-deep {
+        .p-dropdown {
+            width: 100%;
+        }
+    }
+}
+
+.list-appointments-card {
+    width: 80%;
+}
+
+.done-background {
+    span {
+        background: #173d51;
+    }
+
+    /* Color de fondo verde si es "done" */
+}
+
+.black-background {
+    span {
+        ::ng-deep {
+            .p-tag {
+                background: #184257 !important;
+            }
+        }
+    }
+
+    /*/* Color de fondo negro si no es "done" */
+}
