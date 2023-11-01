@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ 'registar_resultado' | translate }}</ion-title>
+    <ion-title>{{ 'asignar_candidatos' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,18 +14,18 @@
 
       <form [formGroup]="addMember" (ngSubmit)="onSubmit()">
         <div class="mb-6">
-            <label 
+            <label
                 class="w-full block text-xl font-medium mb-2"
                 for="search-education">{{'proyecto'|translate}}</label>
 
             <div class="w-full">
-                <p-dropdown 
+                <p-dropdown
                     [placeholder]="('seleccione_una_opcion' | translate)"
                     [options]="projectOptions"
                     optionValue="id"
                     optionLabel="name"
                     formControlName="projectId"
-                    [class]="(projectId!.invalid && (projectId!.dirty || projectId!.touched) ? 'ng-dirty' : '')" 
+                    [class]="(projectId!.invalid && (projectId!.dirty || projectId!.touched) ? 'ng-dirty' : '')"
                     (onChange)="onChangeProject(projectId!.value)">
                 </p-dropdown>
             </div>
@@ -40,18 +40,18 @@
         </div>
 
         <div class="mb-6">
-            <label 
+            <label
                 class="w-full block text-xl font-medium mb-2"
                 for="search-education">{{'equipo'|translate}}</label>
 
             <div class="w-full">
-                <p-dropdown 
+                <p-dropdown
                     [placeholder]="('seleccione_una_opcion' | translate)"
                     [options]="teamsOptions"
                     optionValue="id"
                     optionLabel="name"
                     formControlName="teamId"
-                    [class]="(teamId!.invalid && (teamId!.dirty || teamId!.touched) ? 'ng-dirty' : '')" 
+                    [class]="(teamId!.invalid && (teamId!.dirty || teamId!.touched) ? 'ng-dirty' : '')"
                     [emptyMessage]="('sin_equipos' | translate)">
                 </p-dropdown>
             </div>
@@ -66,20 +66,20 @@
         </div>
 
         <div class="mb-6">
-            <label 
+            <label
                 class="w-full block text-xl font-medium mb-2"
                 for="search-education">{{'CANDIDATO'|translate}}</label>
-            
+
             <div class="w-full">
-                <p-multiSelect 
+                <p-multiSelect
                     name="education"
                     id="search-education"
-                    [options]="cadidateOptions" 
+                    [options]="cadidateOptions"
                     formControlName="userId"
                     [placeholder]="'seleccione_una_opcion'| translate"
-                    optionLabel="fullName" 
+                    optionLabel="fullName"
                     optionValue="id"
-                    class="multiselect-custom  w-full" 
+                    class="multiselect-custom  w-full"
                     display="chip">
                 </p-multiSelect>
             </div>
@@ -111,7 +111,7 @@
             </button>
         </div>
 
-        <div 
+        <div
             class="mx-auto mt-3 w-6"
             *ngIf="loading">
             <p-progressBar mode="indeterminate"></p-progressBar>
