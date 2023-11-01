@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { CandidateService } from './candidate.service';
 
-describe('AuthService', () => {
+describe('CandidateService', () => {
   let service: CandidateService;
   let httpTestingController: HttpTestingController;
   const currentUser = { access_token: 'your-access-token' };

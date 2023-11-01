@@ -1,6 +1,11 @@
-<ion-menu contentId="main-content">
+<ion-menu [disabled]="disabledMenu" contentId="main-content" (ionWillOpen)="openMenu()">
   <div class="h-full w-full surface-800 over-menu">
-    <div class="layout-menu__logo mt-3 py-4">
+    <ion-menu-toggle>
+      <div class="mt-2 flex justify-content-end p-2 icon-color">
+        <i class="pi pi-arrow-left"></i>
+      </div>
+    </ion-menu-toggle>
+    <div class="layout-menu__logo mt-1 py-4">
       <div class="text-center layout-menu__logo-image mb-3">
         <img src="assets/images/logo.png" alt="Logo">
       </div>
@@ -14,20 +19,23 @@
       <p-avatar image="{{user.picture}}" styleClass="mr-2" size="large"></p-avatar>
       <div>
         <p class="pb-1">{{user.names}} {{user.surnames}}</p>
-        <span class="pt-1">{{user.rol}}</span>
+        <span class="pt-1">{{user.rol | translate}}</span>
       </div>
     </div>
     <div>
       <div class="layout-menu__menu surface-card m-4 border-round-xl">
         <ion-list>
-          <ion-menu-toogle *ngFor="let i of model ">
-            <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink">
-              <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
-              <ion-label class="layout-menuitem-text">
-                {{item.label | translate}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toogle>
+          <div *ngFor="let i of model ">
+            <ion-menu-toogle>
+              <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink"
+                (click)="openEnd()">
+                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+                <ion-label class="layout-menuitem-text">
+                  {{item.label | translate}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toogle>
+          </div>
         </ion-list>
       </div>
       <div class="m-4  flex justify-content-center">
@@ -38,7 +46,7 @@
   <ion-footer class="ion-no-border">
     <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
       <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
-      
+
     </ion-toolbar>
   </ion-footer>
 </ion-menu>

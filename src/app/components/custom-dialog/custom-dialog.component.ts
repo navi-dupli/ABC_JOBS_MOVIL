@@ -22,12 +22,14 @@ export class CustomDialogComponent implements OnInit {
 
   closeDialog() {
     this.data.displayModal = false;
-    if (this.data.typeModal === 'Éxito') {
+    if (this.data.typeModal === 'Éxito' || this.data.typeModal === 'Success') {
       this.closeModal.emit(true);
     }
   }
 
   confirmDialog() {
+    console.log('ceerardo');
+    
     this.confirmModal.emit(true);
     this.data.displayModal = false;
   }

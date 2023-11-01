@@ -19,9 +19,7 @@ export class SessionService {
             if (user) {
                 this.currentUser = JSON.parse(user) as CurrentUser;
                 if (this.currentUser.access_token) {
-                    this.decodedToken = jwt_decode(this.currentUser.access_token) as TokenInfo;
-                    console.log(this.decodedToken);
-                    
+                    this.decodedToken = jwt_decode(this.currentUser.access_token) as TokenInfo;                    
                 }
             }
 
