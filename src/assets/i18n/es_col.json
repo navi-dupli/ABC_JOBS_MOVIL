@@ -31,5 +31,15 @@
   "salir": "Salir",
   "REPRESENTANTE_EMPRESA": "Representante empresa",
   "CANDIDATO": "Candidato",
-  "FUNCIONARIO_ABC": "Funcionario ABC"
+  "FUNCIONARIO_ABC": "Funcionario ABC",
+  "equipos": "Equipos",
+  "asignar_candidatos": "Asignar candidatos",
+  "proyecto": "Proyecto",
+  "equipo": "Equipo",
+  "sin_equipos": "El proyecto seleccionado no tiene equipos relacionados",
+  "asignar_candidatos_confirmacion": "¿Desea asignar los candidatos a un equipo?",
+  "asignar_candidatos_correctamente": "Los candidatos se han asignado correctamente",
+  "error_asignar_candidatos":"Hubo un error al asignar los candidatos a un equipo",
+  "exito": "Éxito",
+  "campos_incompletos": "El formulario tiene campos obligatorios vacios"
 }
