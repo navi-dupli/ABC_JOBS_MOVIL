@@ -13,7 +13,7 @@
       <div *ngFor="let appointments of totalAppointments">
         <label class="text-2xl font-bold">{{appointments.date}}</label>
         <div *ngFor="let appointment of appointments.appointments" class="pt-3">
-          <label class="text-xl font-semibold"> Entrevista 1 </label>
+          <label class="text-xl font-semibold"> {{appointment.title}}</label>
           <div class="formgrid grid">
             <div class="field col ">
               <label class="text-lg text-600 pt-2">{{appointment.hourFormat}}</label>
@@ -22,9 +22,9 @@
               <label class="text-sm text-500">{{appointment.processName}} </label>
             </div>
             <div class="field col flex flex-column">
-              <div class="flex justify-content-end flex-wrap pb-2">
-                <i *ngIf="appointment.isDone" class="pr-2 pi pi-eye-slash"></i>
-                <i *ngIf="!appointment.isDone" class="pr-2 pi pi-eye"></i>
+              <div class="flex justify-content-end flex-wrap pb-2 pt-2">
+                <i *ngIf="appointment.isDone" class="pr-2 pi pi-eye"></i>
+                <i *ngIf="!appointment.isDone" style="color: green" class="pr-2 pi pi-calendar"></i>
               </div>
               <div class="flex justify-content-end flex-wrap">
                 <p-tag [severity]="appointment.severity">

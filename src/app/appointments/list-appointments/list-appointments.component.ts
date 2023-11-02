@@ -33,7 +33,7 @@ export class ListAppointmentsComponent implements OnInit {
         if (currentUser.rol == "CANDIDATO") {
           result[index].participantName = result[index].interviewerName
         } else if (currentUser.rol == "FUNCIONARIO_ABC") {
-          result[index].participantName = result[index].participantName + " " + result[index].interviewerName
+          result[index].participantName = result[index].participantName + " - " + result[index].interviewerName
         }
       }
       this.orderAppointments(result)
