@@ -9,14 +9,14 @@
 
 <ion-content>
   <div class="register-tech flex justify-content-center surface-ground pb-5 mb-5 ">
-    <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4  register-result-test-container">
+    <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4 add-member-team-container">
       <div class="text-3xl font-medium text-center mb-3">{{ 'asignar_candidatos' | translate }}</div>
 
       <form [formGroup]="addMember" (ngSubmit)="onSubmit()">
         <div class="mb-6">
             <label 
                 class="w-full block text-xl font-medium mb-2"
-                for="search-education">{{'proyecto'|translate}}</label>
+                for="project">{{'proyecto'|translate}}</label>
 
             <div class="w-full">
                 <p-dropdown 
@@ -42,7 +42,7 @@
         <div class="mb-6">
             <label 
                 class="w-full block text-xl font-medium mb-2"
-                for="search-education">{{'equipo'|translate}}</label>
+                for="team">{{'equipo'|translate}}</label>
 
             <div class="w-full">
                 <p-dropdown 
@@ -68,17 +68,16 @@
         <div class="mb-6">
             <label 
                 class="w-full block text-xl font-medium mb-2"
-                for="search-education">{{'CANDIDATO'|translate}}</label>
+                for="search-candidate">{{'CANDIDATO'|translate}}</label>
             
             <div class="w-full">
                 <p-multiSelect 
-                    name="education"
-                    id="search-education"
+                    name="candidate"
+                    id="search-candidate"
                     [options]="cadidateOptions" 
-                    formControlName="userId"
+                    formControlName="users"
                     [placeholder]="'seleccione_una_opcion'| translate"
                     optionLabel="fullName" 
-                    optionValue="id"
                     class="multiselect-custom  w-full" 
                     display="chip">
                 </p-multiSelect>
@@ -86,8 +85,8 @@
 
             <div
                 class="error-form"
-                *ngIf="userId!.invalid && (userId!.dirty || userId!.touched)">
-                <span *ngIf="userId!.errors!.required">
+                *ngIf="users!.invalid && (users!.dirty || users!.touched)">
+                <span *ngIf="users!.errors!.required">
                     {{'campo_obligatorio' | translate}}
                 </span>
             </div>

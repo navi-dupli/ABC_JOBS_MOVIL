@@ -25,7 +25,6 @@ export class MenuComponent {
     this.filterMenu();
   }
   openEnd() {
-    console.log("aaaaaaaaaaaaa")
     this.menu.close();
   }
 
@@ -43,9 +42,15 @@ export class MenuComponent {
       ]
     },
     {
-      label: 'asignar_candidatos',
+      label: 'citas',
       items: [
-        { label: 'asignar_candidatos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+        { label: 'citas', icon: 'pi pi-fw pi-calendar-times', routerLink: ['/listar-citas'], scope: ['view:appointment'] }
+      ]
+    },
+    {
+      label: 'equipos',
+      items: [
+        { label: 'equipos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
   ];

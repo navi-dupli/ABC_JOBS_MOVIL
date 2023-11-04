@@ -26,19 +26,21 @@ export class AuthGuardService implements CanActivate {
   {
     url: '/asignar-candidato-equipo',
     scope: ['register:candidate']
+  },
+  {
+    url: '/listar-citas',
+    scope: ['view:appointment']
   }
   ]
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     
-    console.log(state.url);
     if (this.sessionService.isAuthenticated()) {
       const permissions = this.sessionService.getScopes();
       const routeFound = this.routes.find((item) => {
         const scopes = item.scope.find(scope => permissions.includes(scope));
         return item.url === state.url && scopes
       });
-      console.log(routeFound);
       
       if (routeFound) {
         return true;
