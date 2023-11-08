@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DetailInterviewModel } from 'src/app/models/detail-interview';
-import { DetailInterviewService } from 'src/app/services/detail-interview/detail-interview.service';
+import { DetailInterviewModel } from '../../models/detail-interview';
+import { DetailInterviewService } from '../../services/detail-interview/detail-interview.service';
 
 @Component({
   selector: 'app-interview-detail',
