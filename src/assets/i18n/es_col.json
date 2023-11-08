@@ -46,5 +46,13 @@
   "citas_entrevistas": "Citas entrevistas",
   "cita_finalizada": "Finalizada",
   "cita_activa": "Activa",
-  "sin_citas": "Aún no tienes ninguna cita"
+  "sin_citas": "Aún no tienes ninguna cita",
+  "detalle_entrevista": "Detalle de entrevista",
+  "sin_notas": "No se han registrado resultados para esta entrevista",
+  "nombre_candidato": "Nombre candidato",
+  "notas": "Notas",
+  "conclusiones": "Conclusiones",
+  "volver": "Volver",
+  "entrevistador": "Entrevistador",
+  "fecha": "Fecha"
 }

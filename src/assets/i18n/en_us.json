@@ -46,5 +46,13 @@
   "citas_entrevistas": "Interview appointments",
   "cita_finalizada": "Finished",
   "cita_activa": "Active",
-  "sin_citas": "You don't have any appointment yet"
+  "sin_citas": "You don't have any appointment yet",
+  "detalle_entrevista": "Interview detail",
+  "sin_notas": "No results have been recorded for this interview",
+  "nombre_candidato": "Candidate name",
+  "notas": "Notes",
+  "conclusiones": "Conclusions",
+  "volver": "Back",
+  "entrevistador": "Interviewer",
+  "fecha": "Date"
 }
