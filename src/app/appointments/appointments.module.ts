@@ -6,14 +6,17 @@ import { TranslationModule } from '../components/translation/translation.module'
 import { ButtonModule } from 'primeng/button';
 import { IonicModule } from '@ionic/angular';
 import { TagModule } from 'primeng/tag';
+import { InterviewDetailComponent } from './interview-detail/interview-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [ListAppointmentsComponent],
+  declarations: [ListAppointmentsComponent, InterviewDetailComponent],
   imports: [
     CommonModule,
     TranslationModule,
     ButtonModule,
     IonicModule,
+    RouterModule,
     AppointmentsPageRoutingModule,
     TagModule
   ],

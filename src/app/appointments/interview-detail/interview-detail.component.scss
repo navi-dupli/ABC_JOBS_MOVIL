@@ -1,0 +1,20 @@
+.interview-detail {
+
+    ::ng-deep {
+        .p-dropdown {
+            width: 100%;
+        }
+    }
+}
+
+.interview-detail-card {
+    width: 80%;
+}
+
+.note-detail {
+    min-height: 100px;
+}
+
+.icon-color {
+    color: var(--primary-color);
+}
