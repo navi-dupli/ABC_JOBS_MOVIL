@@ -36,7 +36,6 @@ export class ListAppointmentsComponent implements OnInit {
           result[index].participantName = result[index].participantName + " - " + result[index].interviewerName
         }
       }
-      console.log(result)
       this.orderAppointments(result)
     });
 
