@@ -24,9 +24,6 @@ export class MenuComponent {
     this.user = this.sessionService.getUser();
     this.filterMenu();
   }
-  openEnd() {
-    this.menu.close();
-  }
 
   model: any[] = [
     {
@@ -56,14 +53,14 @@ export class MenuComponent {
   ];
 
   logout() {
-    this.menu.toggle();
     this.authService.logout();
   }
 
   openMenu() {
-    if (this.sessionService.isAuthenticated()) {
+    const user = localStorage.getItem('currentUser');
+    if (this.sessionService.isAuthenticated() && user) {
       this.disabledMenu = false
-    } else {
+    } else { 
       this.disabledMenu = true
     }
   }

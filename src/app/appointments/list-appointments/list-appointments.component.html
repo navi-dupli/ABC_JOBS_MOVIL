@@ -6,7 +6,7 @@
     <ion-title>{{ 'citas_entrevistas' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-ion-content">
   <div *ngIf="totalAppointments.length > 0"
     class="list-appointments flex justify-content-center  pb-5 mb-5">
     <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4 list-appointments-card">
@@ -56,3 +56,4 @@
   </div>
 
 </ion-content>
+<app-footer></app-footer>
