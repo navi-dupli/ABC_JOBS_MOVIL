@@ -11,6 +11,7 @@ import { CustomDialogModule } from '../components/custom-dialog/custom-dialog.mo
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { FooterModule } from '../components/footer/footer.module';
 
 @NgModule({
   declarations: [RegisterTechnicalTestComponent],
@@ -25,6 +26,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     IonicModule,
     RouterModule,
     ButtonModule,
+    FooterModule,
     CustomDialogModule,
     ProgressBarModule
   ],

@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { TagModule } from 'primeng/tag';
 import { InterviewDetailComponent } from './interview-detail/interview-detail.component';
 import { RouterModule } from '@angular/router';
+import { FooterModule } from '../components/footer/footer.module';
 
 @NgModule({
   declarations: [ListAppointmentsComponent, InterviewDetailComponent],
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     ButtonModule,
     IonicModule,
     RouterModule,
+    FooterModule,
     AppointmentsPageRoutingModule,
     TagModule
   ],

@@ -45,7 +45,7 @@
     --error-color: #e24c4c;
     --surface-506981: #506981;
     --ion-background-color: var(--surface-ground);
-     color-scheme: light
+    color-scheme: light
 }
 
 ion-toolbar {
@@ -58,7 +58,9 @@ ion-menu-button {
     --color: var(--primary-color);
 }
 
-
+.content-ion-content {
+    height: calc(100% - 56px - 32px)
+}
 
 * {
     box-sizing: border-box

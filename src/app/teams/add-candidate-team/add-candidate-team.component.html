@@ -7,7 +7,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="content-ion-content">
     <div class="register-tech flex justify-content-center  pb-5 mb-5 ">
         <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4 add-member-team-container">
             <div class="text-3xl font-medium text-center mb-3">{{ 'asignar_candidatos' | translate }}</div>
@@ -85,3 +85,4 @@
 </ion-content>
 <app-custom-dialog [dataModal]="dataModal" (closeModal)="closeModal($event)" (confirmModal)="confirmModal($event)">
 </app-custom-dialog>
+<app-footer></app-footer>

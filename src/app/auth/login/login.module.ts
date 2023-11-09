@@ -18,6 +18,7 @@ import { SelectLanguageModule } from '../../components/select-language/select-la
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { TranslationModule } from 'src/app/components/translation/translation.module';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -34,7 +35,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
     ScrollTopModule,
     TranslationModule,
     SelectLanguageModule,
-    ProgressBarModule
+    ProgressBarModule,
+    FooterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService]

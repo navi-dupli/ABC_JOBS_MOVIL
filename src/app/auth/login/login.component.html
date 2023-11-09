@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content  class="content">
   <div class="login-container ">
     <div class="surface-ground h-full flex justify-content-center min-h-screen min-w-screen overflow-hidden">
       <div class="flex flex-column justify-content-center surface-card login-pad">
@@ -6,7 +6,7 @@
           <app-select-language></app-select-language>
         </div>
 
-        <div class="w-full h-full py-4 px-5 sm:px-8">
+        <div class="w-full h-full  px-5 sm:px-8">
           <div class="text-center">
             <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
           </div>
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex align-items-center justify-content-between  mb-2 gap-5">
+            <div class="flex align-items-center justify-content-between  mb-1 gap-5">
               <div class="flex align-items-center">
                 <p-checkbox id="login_rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
                 <label>{{ 'recuerdame' | translate }}</label>
@@ -79,7 +79,7 @@
             </div>
 
             <div 
-                class="mx-auto mt-3 w-6"
+                class="mx-auto mt-2 w-6"
                 *ngIf="loading">
                 <p-progressBar mode="indeterminate"></p-progressBar>
             </div>
@@ -95,3 +95,4 @@
   </div>
 </ion-content>
 <app-custom-dialog [dataModal]="dataModal"> </app-custom-dialog>
+<app-footer></app-footer>
