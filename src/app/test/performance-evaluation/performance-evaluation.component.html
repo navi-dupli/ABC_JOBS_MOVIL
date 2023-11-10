@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content class="content-ion-content">
 <div class="flex justify-content-center mt-5">
-  <div class="flex flex-column justify-content-center surface-card p-5 w-9">
+  <div class="flex flex-column justify-content-center surface-card p-5 w-9 register-performace-test">
     <form [formGroup]="performanceEval" (ngSubmit)="onSubmit()">
       <div class="mb-6">
         <label class="w-full block text-xl font-medium mb-2" for="project">{{'proyecto'|translate}}</label>
@@ -118,8 +118,9 @@
       </div>
 
       <div class="flex justify-content-end">
-        <button pButton pRipple type="button" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-          [routerLink]="['/']">
+        <button pButton pRipple type="button" [label]="'cancelar' | translate" class="p-button-outlined mr-5"
+            [routerDirection]="'root'" [routerLink]="['/']">
+
         </button>
         <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
         </button>
