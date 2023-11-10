@@ -29,6 +29,7 @@ export class ListAppointmentsComponent implements OnInit {
         result[index].hourFormat = result[index].dateMoment.utc().format("h:mm:ss a")
         result[index].isDone = result[index].dateMoment.isBefore(moment())
         result[index].severity = result[index].isDone ? "info" : ""
+        result[index].rol = currentUser.rol
         result[index].participantName = result[index].candidateName
         if (currentUser.rol == "CANDIDATO") {
           result[index].participantName = result[index].interviewerName

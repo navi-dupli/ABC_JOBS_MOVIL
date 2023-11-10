@@ -28,7 +28,6 @@ export class CustomDialogComponent implements OnInit {
   }
 
   confirmDialog() {
-    console.log('ceerardo');
     
     this.confirmModal.emit(true);
     this.data.displayModal = false;
