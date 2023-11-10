@@ -12,9 +12,10 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { FooterModule } from '../components/footer/footer.module';
+import { PerformanceEvaluationComponent } from './performance-evaluation/performance-evaluation.component';
 
 @NgModule({
-  declarations: [RegisterTechnicalTestComponent],
+  declarations: [RegisterTechnicalTestComponent, PerformanceEvaluationComponent],
   imports: [
     TranslationModule,
     CommonModule,
@@ -28,8 +29,8 @@ import { FooterModule } from '../components/footer/footer.module';
     ButtonModule,
     FooterModule,
     CustomDialogModule,
-    ProgressBarModule
+    ProgressBarModule,
   ],
-  exports: [RegisterTechnicalTestComponent]
+  exports: [RegisterTechnicalTestComponent, PerformanceEvaluationComponent]
 })
 export class TestModule { }

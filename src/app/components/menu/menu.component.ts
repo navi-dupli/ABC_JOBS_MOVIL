@@ -50,6 +50,12 @@ export class MenuComponent {
         { label: 'equipos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
+    {
+      label: 'eva_desempenio',
+      items: [
+        { label: 'eva_desempenio', icon: 'pi pi-fw pi-check-circle', routerLink: ['/evaluar-desempeno'], scope: ['register:performance-evaluation'] }
+      ]
+    },
   ];
 
   logout() {
@@ -60,7 +66,7 @@ export class MenuComponent {
     const user = localStorage.getItem('currentUser');
     if (this.sessionService.isAuthenticated() && user) {
       this.disabledMenu = false
-    } else { 
+    } else {
       this.disabledMenu = true
     }
   }
