@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ 'registar_resultado' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="register-tech flex justify-content-center surface-ground pb-5 mb-5">
+<ion-content class="content-ion-content">
+  <div class="register-tech flex justify-content-center  pb-5 mb-5">
     <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4  register-result-test-container">
       <div class="text-3xl font-medium text-center mb-3">{{ 'registar_resultados_prueba_tecnica' | translate }}</div>
       <form [formGroup]="registerTechnicalTest">
@@ -16,7 +16,8 @@
         <div class="mb-5">
           <div class="w-full">
             <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="technicalTestOptions"
-              optionValue="id" optionLabel="name" formControlName="technicalTest" (onChange)="onChangeTest(technicalTest!.value)"
+              optionValue="id" optionLabel="name" formControlName="technicalTest"
+              (onChange)="onChangeTest(technicalTest!.value)"
               [class]="(technicalTest!.invalid && (technicalTest!.dirty || technicalTest!.touched) ? 'ng-dirty' : '')"></p-dropdown>
           </div>
           <div class="error-form" *ngIf="technicalTest!.invalid && (technicalTest!.dirty || technicalTest!.touched)">
@@ -28,8 +29,8 @@
         <label class="block text-xl font-medium mb-2">{{ 'candidato' | translate }}*</label>
         <div class="mb-5">
           <div class="w-full">
-            <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="candidateOptions" optionValue="id"
-              optionLabel="totalName" formControlName="candidate"
+            <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="candidateOptions"
+              optionValue="id" optionLabel="totalName" formControlName="candidate"
               [class]="(candidate!.invalid && (candidate!.dirty || candidate!.touched) ? 'ng-dirty' : '')"></p-dropdown>
           </div>
           <div class="error-form" *ngIf="candidate!.invalid && (candidate!.dirty || candidate!.touched)">
@@ -41,8 +42,8 @@
         <label class="block text-xl font-medium mb-2">{{ 'estado' | translate }}*</label>
         <div class="mb-5">
           <div class="w-full">
-            <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="stateOptions" optionValue="value"
-              optionLabel="state" formControlName="state"
+            <p-dropdown [placeholder]="'seleccione_una_opcion' | translate " [options]="stateOptions"
+              optionValue="value" optionLabel="state" formControlName="state"
               [class]="(state!.invalid && (state!.dirty || state!.touched) ? 'ng-dirty' : '')"></p-dropdown>
           </div>
           <div class="error-form" *ngIf="state!.invalid && (state!.dirty || state!.touched)">
@@ -92,15 +93,13 @@
           <button pButton pRipple type="button" [label]="'cancelar' | translate" class="p-button-outlined mr-5"
             [routerDirection]="'root'" [routerLink]="['/']">
           </button>
-          <button pButton pRipple type="button" [label]="'guardar' | translate" [disabled]="registerTechnicalTest.invalid"
-            (click)="onSubmit()">
+          <button pButton pRipple type="button" [label]="'guardar' | translate"
+            [disabled]="registerTechnicalTest.invalid" (click)="onSubmit()">
           </button>
         </div>
 
-        <div 
-            class="mx-auto mt-3 w-6"
-            *ngIf="loading">
-            <p-progressBar mode="indeterminate"></p-progressBar>
+        <div class="mx-auto mt-3 w-6" *ngIf="loading">
+          <p-progressBar mode="indeterminate"></p-progressBar>
         </div>
 
       </form>
@@ -109,3 +108,4 @@
 </ion-content>
 <app-custom-dialog [dataModal]="dataModal" (closeModal)="closeModal($event)" (confirmModal)="confirmModal($event)">
 </app-custom-dialog>
+<app-footer></app-footer>

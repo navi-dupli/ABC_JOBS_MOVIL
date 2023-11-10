@@ -9,27 +9,8 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-/* Core CSS required for Ionic components to work properly */
-/* @import "@ionic/angular/css/core.css";
-@import "assets/layout/styles/layout/layout.scss"; */
-
-/* Basic CSS for apps built with Ionic */
-/* @import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css"; */
-
-/* Optional CSS utils that can be commented out */
-/* @import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css"; */
-
-
 $gutter: 1rem; //for primeflex grid system
 @import "assets/layout/styles/layout/layout.scss";
-
 
 /* Demos */
 @import "assets/demo/styles/flags/flags.css";

@@ -24,10 +24,6 @@ export class MenuComponent {
     this.user = this.sessionService.getUser();
     this.filterMenu();
   }
-  openEnd() {
-    console.log("aaaaaaaaaaaaa")
-    this.menu.close();
-  }
 
   model: any[] = [
     {
@@ -43,22 +39,28 @@ export class MenuComponent {
       ]
     },
     {
-      label: 'registar_resultado',
+      label: 'citas',
       items: [
-        { label: 'registar_resultado', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
+        { label: 'citas', icon: 'pi pi-fw pi-calendar-times', routerLink: ['/listar-citas'], scope: ['view:appointment'] }
+      ]
+    },
+    {
+      label: 'equipos',
+      items: [
+        { label: 'equipos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
   ];
 
   logout() {
-    this.menu.toggle();
     this.authService.logout();
   }
 
   openMenu() {
-    if (this.sessionService.isAuthenticated()) {
+    const user = localStorage.getItem('currentUser');
+    if (this.sessionService.isAuthenticated() && user) {
       this.disabledMenu = false
-    } else {
+    } else { 
       this.disabledMenu = true
     }
   }
