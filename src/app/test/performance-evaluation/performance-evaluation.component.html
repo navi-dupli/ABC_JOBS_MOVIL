@@ -118,8 +118,8 @@
       </div>
 
       <div class="flex justify-content-end">
-        <button pButton pRipple type="button" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-          [routerLink]="['/']">
+        <button pButton pRipple type="button" [label]="'cancelar' | translate" class="p-button-outlined mr-5"
+            [routerDirection]="'root'" [routerLink]="['/']">
         </button>
         <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
         </button>
