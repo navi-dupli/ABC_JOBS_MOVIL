@@ -30,6 +30,10 @@ export class AuthGuardService implements CanActivate {
   {
     url: '/listar-citas',
     scope: ['view:appointment']
+  },
+  {
+    url: '/evaluar-desempeno',
+    scope: ['register:performance-evaluation']
   }
   ]
 

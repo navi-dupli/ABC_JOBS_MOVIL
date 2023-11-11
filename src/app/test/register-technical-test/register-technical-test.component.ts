@@ -90,6 +90,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
         },
         error: (e) => {
           console.log(e)
+          this.loading = false;
           if (e.status === 400) {
             this.dataModal = {
               displayModal: true,
@@ -98,6 +99,7 @@ export class RegisterTechnicalTestComponent implements OnInit {
               typeModal: 'Error'
             }
           } else {
+            this.loading = false;
             const textModal = this.translate.instant("error_almacenando_resultado_prueba_tecnica");
             this.dataModal = {
               displayModal: true,

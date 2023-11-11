@@ -23,7 +23,7 @@
             </div>
             <div class="field col flex flex-column">
               <div class="flex justify-content-end flex-wrap pb-2 pt-2">
-                <i *ngIf="appointment.isDone" class="pr-2 pi pi-eye" [routerDirection]="'root'"
+                <i *ngIf="appointment.isDone && appointment.rol != 'CANDIDATO'" class="pr-2 pi pi-eye icon-color" [routerDirection]="'root'"
                   [routerLink]="['/detalle-entrevista', appointment.id]"></i>
                 <i *ngIf="!appointment.isDone" style="color: green" class="pr-2 pi pi-calendar"></i>
               </div>
