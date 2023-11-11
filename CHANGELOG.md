@@ -2,8 +2,6 @@
 
 Todas las notas de lanzamiento se registran en este archivo. Este proyecto sigue la especificación [Semantic Versioning](https://semver.org/).
 
-## Unreleased
-
 ## 2.1.0
 
 ### Cambios Generales
