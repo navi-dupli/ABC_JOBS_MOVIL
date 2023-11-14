@@ -2,6 +2,12 @@
 
 Todas las notas de lanzamiento se registran en este archivo. Este proyecto sigue la especificación [Semantic Versioning](https://semver.org/).
 
+## 2.2.0
+
+### Cambios Generales
+
+- [ABCJ-92] Se Actualiza estilos la funcionalidad de [MOVIL] - Listar citas de entrevistas. [Ver Detalles](https://abcjobsg16.atlassian.net/browse/ABCJ-92?atlOrigin=eyJpIjoiYzgwYTQ0ZjEyNzQzNGJhN2JmNjEyZTM0NmRhZWZhNjIiLCJwIjoic2hlZXRzLWppcmEifQ)
+
 ## 2.1.0
 
 ### Cambios Generales
