@@ -64,5 +64,16 @@
   "evaluacion_desempenio_confirmacion": "Do you want to record the candidate's performance evaluation?",
   "evaluacion_desempenio_correctamente": "The candidate's performance evaluation has been recorded correctly",
   "error_evaluacion_desempenio": "There was an error in recording the candidate's performance evaluation",
-  "sin_candidatos": "The selected team has no related candidates"
+  "sin_candidatos": "The selected team has no related candidates",
+  "completar_perfil": "Update profile",
+  "imagen_perfil": "profile imagen",
+  "perfil_habilidades": "Skills / Languages",
+  "idiomas": "Languages",
+  "educacion":" Education",
+  "actualizar_educacion_confirmacion":"Do you want to update the education information?",
+  "titulo_educativo":"Educational title",
+  "fecha_inicio":"Start date",
+  "fecha_fin":"End date",
+  "certificado":"Certificate",
+  "actualizacion_educacion_correctamente":"The education information has been updated correctly"
 }

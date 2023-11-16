@@ -34,6 +34,9 @@ export class AuthGuardService implements CanActivate {
   {
     url: '/evaluar-desempeno',
     scope: ['register:performance-evaluation']
+  },{
+    url: '/completar-perfil',
+    scope: ['register:profile-candidate']
   }
   ]
 

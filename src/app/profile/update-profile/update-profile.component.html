@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title id="title_result_interview">{{ 'completar_perfil' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content-ion-content">
+  <div class="update-profile flex flex-column justify-content-center  pb-5 mb-5 mt-4">
+    <div class="flex justify-content-center surface-card p-5 mt-2 m-4">
+      <div class="grid w-full flex">
+        <div class="col-12 flex justify-content-center">
+          <img [src]="candidate.picture" alt="{{'imagen_perfil'|translate}}">
+        </div>
+        <div class="col-12 flex justify-content-center pt-2">
+          <label class="font-semibold text-2xl m-0">{{candidate.names}} {{candidate.surnames}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-id-card"></i> {{candidate.identify}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-phone"></i> {{candidate.phone}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-inbox"></i> {{candidate.email}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-map-marker"></i> {{candidate.country}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-content-center surface-card mt-2 m-4">
+      <form [formGroup]="profileSkills" (ngSubmit)="onSubmit()" class="w-full p-4">
+        <div class="pt-4 ">
+          <p>{{'perfil_habilidades'|translate}}</p>
+          <label class=" block text-xl font-medium mb-2" for="select-languges">{{'idiomas'|translate}}</label>
+          <div >
+            <p-multiSelect name="languge" id="select-languges" [options]="langugesOptions" formControlName="languges"
+              [placeholder]="'seleccione_una_opcion'| translate" optionLabel="fullName"
+              class="multiselect-custom w-full " display="chip">
+            </p-multiSelect>
+          </div>
+
+          <div class="error-form" *ngIf="languges!.invalid && (languges!.dirty || languges!.touched)">
+            <span *ngIf="languges!.errors!.required">
+              {{'campo_obligatorio' | translate}}
+            </span>
+          </div>
+          <div class="flex justify-content-end">
+            <button pButton pRipple type="button" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
+              [routerLink]="['/']">
+            </button>
+            <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
+            </button>
+          </div>
+
+          <div class="mx-auto mt-3 w-6" *ngIf="loading">
+            <p-progressBar mode="indeterminate"></p-progressBar>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
+
+      hola
+    </div>
+    <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
+
+      hola
+    </div>
+  </div>
+</ion-content>
+<app-footer></app-footer>

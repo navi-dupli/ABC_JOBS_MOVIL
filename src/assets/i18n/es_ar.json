@@ -55,8 +55,8 @@
   "volver": "Volver",
   "entrevistador": "Entrevistador",
   "fecha": "Fecha",
-  "version":"Versión",
-  "detalle_calificacion":"La calificación es un valor de 0 a 10 y se permiten valores decimales. Ej: 5 ó 3.5",
+  "version": "Versión",
+  "detalle_calificacion": "La calificación es un valor de 0 a 10 y se permiten valores decimales. Ej: 5 ó 3.5",
   "eva_desempenio": "Eva. de desempeño",
   "evaluacion_desempenio": "Evaluación de desempeño",
   "dimension": "Dimensión",
@@ -64,5 +64,15 @@
   "evaluacion_desempenio_confirmacion": "¿Desea registrar la evaluacion de desempeño del candidato?",
   "evaluacion_desempenio_correctamente": "La evaluacion de desempeño del candidato se ha registrado correctamente",
   "error_evaluacion_desempenio": "Hubo un error al registrar la evaluacion de desempeño del candidato",
-  "sin_candidatos": "El equipo seleccionado no tiene candidatos relacionados"
+  "sin_candidatos": "El equipo seleccionado no tiene candidatos relacionados",
+  "completar_perfil": "Completar perfil",
+  "imagen_perfil": "imagen perfil",
+  "perfil_habilidades": "Habilidades / Idiomas",
+  "idiomas": "Idiomas",
+  "educacion":" Educación",
+  "titulo_educativo": "Titulo educativo",
+  "fecha_inicio": "Fecha inicio",
+  "fecha_fin": "Fecha fin",
+  "certificado": "Certificado",
+  "actualizacion_educacion_correctamente": "La actualización de la educación se ha realizado correctamente"
 }

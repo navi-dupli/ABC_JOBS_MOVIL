@@ -19,6 +19,7 @@ import { AvatarModule } from "primeng/avatar";
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddCandidateTeamModule } from './teams/add-candidate-team.module';
 import { AppointmentsModule } from './appointments/appointments.module';
+import { ProfileModule } from './profile/profile.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -37,6 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
     AddCandidateTeamModule,
     AppointmentsModule,
     RouterModule,
+    ProfileModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
