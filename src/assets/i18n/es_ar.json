@@ -69,10 +69,14 @@
   "imagen_perfil": "imagen perfil",
   "perfil_habilidades": "Habilidades / Idiomas",
   "idiomas": "Idiomas",
-  "educacion":" Educación",
+  "educacion": " Educación",
   "titulo_educativo": "Titulo educativo",
   "fecha_inicio": "Fecha inicio",
   "fecha_fin": "Fecha fin",
   "certificado": "Certificado",
-  "actualizacion_educacion_correctamente": "La actualización de la educación se ha realizado correctamente"
+  "actualizacion_educacion_correctamente": "La actualización de la educación se ha realizado correctamente",
+  "experiencia_laboral": "Experiencia laboral",
+  "rol_desempenado": "Rol asignado / Cargo",
+  "empresa": "Empresa",
+  "descripcion": "Descripción"
 }

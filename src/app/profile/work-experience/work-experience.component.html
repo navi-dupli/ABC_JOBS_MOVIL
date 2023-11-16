@@ -3,26 +3,58 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ 'educacion' | translate }}</ion-title>
+    <ion-title>{{ 'experiencia_laboral' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="content-ion-content">
   <div class="register-tech flex justify-content-center  pb-5 mb-5 ">
     <div class="flex flex-column justify-content-center surface-card p-5 mt-4 mb-4 update-education-container">
-      <form [formGroup]="updateEducation" (ngSubmit)="onSubmit()">
+      <form [formGroup]="updateWorkExperiencie" (ngSubmit)="onSubmit()">
         <div class="mb-4">
           <label class="w-full block text-xl font-medium mb-2"
-            for="tittle">{{'titulo_educativo'|translate}}</label>
+            for="role">{{'rol_desempenado'|translate}}</label>
 
           <div class="w-full">
-            <input id="tittle" type="text" [placeholder]="'titulo_educativo' | translate " pInputText [class]="'w-full ' + 
-                              (tittleName!.invalid && (tittleName!.dirty || tittleName!.touched) ? 'ng-dirty' : '')"
-              style="padding:1rem" formControlName="tittleName">
+            <input id="role" type="text" [placeholder]="'rol_desempenado' | translate " pInputText [class]="'w-full ' + 
+                              (roleName!.invalid && (roleName!.dirty || roleName!.touched) ? 'ng-dirty' : '')"
+              style="padding:1rem" formControlName="roleName">
           </div>
 
-          <div class="error-form" *ngIf="tittleName!.invalid && (tittleName!.dirty || tittleName!.touched)">
-            <span *ngIf="tittleName!.errors!.required">
+          <div class="error-form" *ngIf="roleName!.invalid && (roleName!.dirty || roleName!.touched)">
+            <span *ngIf="roleName!.errors!.required">
+              {{ 'campo_obligatorio' | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="w-full block text-xl font-medium mb-2"
+            for="empresa">{{'empresa'|translate}}</label>
+
+          <div class="w-full">
+            <input id="empresa" type="text" [placeholder]="'rol_desempenado' | translate " pInputText [class]="'w-full ' + 
+                              (companyName!.invalid && (companyName!.dirty || companyName!.touched) ? 'ng-dirty' : '')"
+              style="padding:1rem" formControlName="companyName">
+          </div>
+
+          <div class="error-form" *ngIf="companyName!.invalid && (companyName!.dirty || companyName!.touched)">
+            <span *ngIf="companyName!.errors!.required">
+              {{ 'campo_obligatorio' | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="w-full block text-xl font-medium mb-2"
+            for="descripcion">{{'descripcion'|translate}}</label>
+
+          <div class="w-full">
+            <input id="descripcion" type="text" [placeholder]="'descripcion' | translate " pInputText [class]="'w-full ' + 
+                              (description!.invalid && (description!.dirty || description!.touched) ? 'ng-dirty' : '')"
+              style="padding:1rem" formControlName="description">
+          </div>
+
+          <div class="error-form" *ngIf="description!.invalid && (description!.dirty || description!.touched)">
+            <span *ngIf="description!.errors!.required">
               {{ 'campo_obligatorio' | translate }}
             </span>
           </div>
@@ -56,21 +88,6 @@
 
           <div class="error-form" *ngIf="dateEnd!.invalid && (dateEnd!.dirty || dateEnd!.touched)">
             <span *ngIf="dateEnd!.errors!.required">
-              {{ 'campo_obligatorio' | translate }}
-            </span>
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="w-full block text-xl font-medium mb-2" for="certif">{{'certificado'|translate}}</label>
-
-          <div class="w-full">
-            <input id="certif" type="text" [placeholder]="'certificado' | translate " pInputText [class]="'w-full ' + 
-                              (certificate!.invalid && (certificate!.dirty || certificate!.touched) ? 'ng-dirty' : '')"
-              style="padding:1rem" formControlName="certificate">
-          </div>
-
-          <div class="error-form" *ngIf="certificate!.invalid && (certificate!.dirty || certificate!.touched)">
-            <span *ngIf="certificate!.errors!.required">
               {{ 'campo_obligatorio' | translate }}
             </span>
           </div>

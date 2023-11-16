@@ -69,11 +69,15 @@
   "imagen_perfil": "profile imagen",
   "perfil_habilidades": "Skills / Languages",
   "idiomas": "Languages",
-  "educacion":" Education",
-  "actualizar_educacion_confirmacion":"Do you want to update the education information?",
-  "titulo_educativo":"Educational title",
-  "fecha_inicio":"Start date",
-  "fecha_fin":"End date",
-  "certificado":"Certificate",
-  "actualizacion_educacion_correctamente":"The education information has been updated correctly"
+  "educacion": " Education",
+  "actualizar_educacion_confirmacion": "Do you want to update the education information?",
+  "titulo_educativo": "Educational title",
+  "fecha_inicio": "Start date",
+  "fecha_fin": "End date",
+  "certificado": "Certificate",
+  "actualizacion_educacion_correctamente": "The education information has been updated correctly",
+  "experiencia_laboral": "Work experience",
+  "rol_desempenado": "Role / Job",
+  "empresa": "Company",
+  "descripcion": "Description"
 }

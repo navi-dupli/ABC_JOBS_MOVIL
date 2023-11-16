@@ -14,9 +14,10 @@ import { CustomDialogModule } from '../components/custom-dialog/custom-dialog.mo
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { FileUploadModule } from 'primeng/fileupload';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
 
 @NgModule({
-  declarations: [UpdateProfileComponent, UpdateEducationComponent],
+  declarations: [UpdateProfileComponent, UpdateEducationComponent, WorkExperienceComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
@@ -32,6 +33,6 @@ import { FileUploadModule } from 'primeng/fileupload';
     CalendarModule,
     InputTextModule,
     FileUploadModule
-  ],exports: [UpdateProfileComponent,UpdateEducationComponent]
+  ], exports: [UpdateProfileComponent, UpdateEducationComponent, WorkExperienceComponent]
 })
 export class ProfileModule { }
