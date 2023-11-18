@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'completar-perfil',
     component: UpdateProfileComponent,
-    //canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
     path: 'actualizar-educacion',

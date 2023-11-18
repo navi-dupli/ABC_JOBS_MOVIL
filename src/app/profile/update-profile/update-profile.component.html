@@ -48,7 +48,7 @@
             </span>
           </div>
           <div class="flex justify-content-end">
-            <button pButton pRipple type="button" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
+            <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
               [routerLink]="['/']">
             </button>
             <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
@@ -64,11 +64,15 @@
     </div>
     <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
 
-      hola
+      <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
+      [routerLink]="['/actualizar-educacion']">
+    </button>
     </div>
     <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
 
-      hola
+      <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
+      [routerLink]="['/actualizar-experiencia-laboral']">
+    </button>
     </div>
   </div>
 </ion-content>

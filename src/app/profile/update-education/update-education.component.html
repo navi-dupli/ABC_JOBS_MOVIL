@@ -60,26 +60,11 @@
             </span>
           </div>
         </div>
-        <div class="mb-4">
-          <label class="w-full block text-xl font-medium mb-2" for="certif">{{'certificado'|translate}}</label>
-
-          <div class="w-full">
-            <input id="certif" type="text" [placeholder]="'certificado' | translate " pInputText [class]="'w-full ' + 
-                              (certificate!.invalid && (certificate!.dirty || certificate!.touched) ? 'ng-dirty' : '')"
-              style="padding:1rem" formControlName="certificate">
-          </div>
-
-          <div class="error-form" *ngIf="certificate!.invalid && (certificate!.dirty || certificate!.touched)">
-            <span *ngIf="certificate!.errors!.required">
-              {{ 'campo_obligatorio' | translate }}
-            </span>
-          </div>
-        </div>
         <div class="flex justify-content-end">
-          <button pButton pRipple type="button" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-            [routerLink]="['/']">
+          <button pButton pRipple type="button" [label]="'cancelar'|translate" [routerDirection]="'root'" class="p-button-outlined mr-5"
+            [routerLink]="['/completar-perfil']">
           </button>
-          <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
+          <button pButton pRipple type="button" [disabled]="updateEducation.invalid"  [label]="'guardar'|translate"  (click)="onSubmit()">
           </button>
         </div>
 

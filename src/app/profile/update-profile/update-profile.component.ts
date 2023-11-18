@@ -42,7 +42,19 @@ export class UpdateProfileComponent  implements OnInit {
       typeModal: typeModal
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
+    if (hasReloaded == "false") {
+      window.location.reload();
+      sessionStorage.setItem('hasReloaded', 'true');
+    }
+    const local = localStorage.getItem('currentUser');
+    let currentUser: any;
+    if (local !== null) {
+      currentUser = JSON.parse(local);
+    }
+    console.log(currentUser);
+  }
 
   get languges() { return this.profileSkills.get('languges'); }
 }

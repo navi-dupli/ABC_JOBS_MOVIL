@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomDialogModel } from 'src/app/models/custom-dialog.model';
 
@@ -15,16 +16,16 @@ export class UpdateEducationComponent implements OnInit {
   }
   loading: boolean = false;
   uploadedFiles: any[] = [];
-  multiple: boolean | undefined ;
+  multiple: boolean | undefined;
   constructor(
     private translate: TranslateService,
+    private router: Router,
   ) {
     this.multiple = true;
     this.updateEducation = new FormGroup({
       tittleName: new FormControl('', [Validators.required]),
       dateStart: new FormControl('', [Validators.required]),
       dateEnd: new FormControl('', [Validators.required]),
-      certificate: new FormControl('', [Validators.required]),
     });
   }
 
@@ -43,7 +44,12 @@ export class UpdateEducationComponent implements OnInit {
     if (event) {
       if (this.updateEducation.valid) {
         this.loading = true;
-
+        let education = {
+          tittleName: this.updateEducation.get("tittleName")?.value,
+          dateStart: this.updateEducation.get("dateStart")?.value,
+          dateEnd: this.updateEducation.get("dateEnd")?.value,
+        }
+        console.log(education);
         this.loading = false;
         this.dataModal = {
           displayModal: true,
@@ -51,6 +57,8 @@ export class UpdateEducationComponent implements OnInit {
           iconModal: 'pi-check',
           typeModal: this.translate.instant("exito")
         }
+        sessionStorage.setItem('hasReloaded', 'false')
+        this.router.navigate(['/completar-perfil']);
       }
     }
   }
@@ -63,16 +71,8 @@ export class UpdateEducationComponent implements OnInit {
       this.clearForm();
     }
   }
-  onUpload(event: { files: any; }) {
-    console.log("llegaaa")
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
-    }
 
-    console.log(this.uploadedFiles);
-  }
   get tittleName() { return this.updateEducation.get('tittleName'); }
   get dateStart() { return this.updateEducation.get('dateStart'); }
   get dateEnd() { return this.updateEducation.get('dateEnd'); }
-  get certificate() { return this.updateEducation.get('certificate'); }
 }
