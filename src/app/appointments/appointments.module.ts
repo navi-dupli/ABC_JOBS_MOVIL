@@ -9,6 +9,7 @@ import { TagModule } from 'primeng/tag';
 import { InterviewDetailComponent } from './interview-detail/interview-detail.component';
 import { RouterModule } from '@angular/router';
 import { FooterModule } from '../components/footer/footer.module';
+import { FieldsetModule } from 'primeng/fieldset';
 
 @NgModule({
   declarations: [ListAppointmentsComponent, InterviewDetailComponent],
@@ -19,8 +20,9 @@ import { FooterModule } from '../components/footer/footer.module';
     IonicModule,
     RouterModule,
     FooterModule,
+    FieldsetModule,
     AppointmentsPageRoutingModule,
-    TagModule
+    TagModule,
   ],
 })
 export class AppointmentsModule { }
