@@ -44,7 +44,22 @@
     --maskbg: rgba(0, 0, 0, 0.4);
     --error-color: #e24c4c;
     --surface-506981: #506981;
+    --ion-background-color: var(--surface-ground);
     color-scheme: light
+}
+
+ion-toolbar {
+    --background: #454c5f;
+    --color: var(--primary-color);
+
+}
+
+ion-menu-button {
+    --color: var(--primary-color);
+}
+
+.content-ion-content {
+    height: calc(100% - 56px - 32px)
 }
 
 * {
@@ -83,6 +98,7 @@
     width: 1rem;
     height: 1rem
 }
+
 
 .p-link {
     font-size: 1rem;

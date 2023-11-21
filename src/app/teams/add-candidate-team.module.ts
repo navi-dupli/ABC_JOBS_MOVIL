@@ -12,6 +12,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { AddCandidateTeamComponent } from './add-candidate-team/add-candidate-team.component';
 import { AddCandidateTeamRoutingModule } from './add-candidate-team-routing.module';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { FooterModule } from '../components/footer/footer.module';
 
 @NgModule({
   declarations: [AddCandidateTeamComponent],
@@ -27,6 +28,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
     ButtonModule,
     CustomDialogModule,
     ProgressBarModule,
+    FooterModule,
     MultiSelectModule,
     AddCandidateTeamRoutingModule
   ],

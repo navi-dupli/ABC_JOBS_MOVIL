@@ -26,15 +26,14 @@
       <div class="layout-menu__menu surface-card m-4 border-round-xl">
         <ion-list>
           <div *ngFor="let i of model ">
-            <ion-menu-toogle>
-              <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink"
-                (click)="openEnd()">
-                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
+            <ion-menu-toggle>
+              <ion-item *ngFor="let item of i.items " [routerDirection]="'root'" [routerLink]="item.routerLink">
+                <i [ngClass]="item.icon"></i>
                 <ion-label class="layout-menuitem-text">
                   {{item.label | translate}}
                 </ion-label>
               </ion-item>
-            </ion-menu-toogle>
+            </ion-menu-toggle>
           </div>
         </ion-list>
       </div>
@@ -44,9 +43,11 @@
     </div>
   </div>
   <ion-footer class="ion-no-border">
-    <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
-      <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
+    <ion-menu-toggle>
+      <ion-toolbar [routerDirection]="'root'" [routerLink]="'/iniciar-sesion'" (click)="logout()">
+        <ion-title class="text-center text-2xl">{{ 'salir' | translate}} <i class="pi pi-power-off"></i></ion-title>
 
-    </ion-toolbar>
+      </ion-toolbar>
+    </ion-menu-toggle>
   </ion-footer>
 </ion-menu>

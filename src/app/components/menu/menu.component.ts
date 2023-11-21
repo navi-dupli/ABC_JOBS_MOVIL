@@ -24,9 +24,6 @@ export class MenuComponent {
     this.user = this.sessionService.getUser();
     this.filterMenu();
   }
-  openEnd() {
-    this.menu.close();
-  }
 
   model: any[] = [
     {
@@ -53,15 +50,21 @@ export class MenuComponent {
         { label: 'equipos', icon: 'pi pi-fw pi-check-square', routerLink: ['/asignar-candidato-equipo'], scope: ['register:candidate'] }
       ]
     },
+    {
+      label: 'eva_desempenio',
+      items: [
+        { label: 'eva_desempenio', icon: 'pi pi-fw pi-check-circle', routerLink: ['/evaluar-desempeno'], scope: ['register:performance-evaluation'] }
+      ]
+    },
   ];
 
   logout() {
-    this.menu.toggle();
     this.authService.logout();
   }
 
   openMenu() {
-    if (this.sessionService.isAuthenticated()) {
+    const user = localStorage.getItem('currentUser');
+    if (this.sessionService.isAuthenticated() && user) {
       this.disabledMenu = false
     } else {
       this.disabledMenu = true

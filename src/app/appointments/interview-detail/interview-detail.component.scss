@@ -1,4 +1,4 @@
-.register-tech {
+.interview-detail {
 
     ::ng-deep {
         .p-dropdown {
@@ -7,7 +7,10 @@
     }
 }
 
-.register-result-test-container {
+.interview-detail-card {
     width: 80%;
 }
 
+.note-detail {
+    min-height: 100px;
+}
