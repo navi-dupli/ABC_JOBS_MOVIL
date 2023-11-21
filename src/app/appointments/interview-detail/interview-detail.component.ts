@@ -8,19 +8,24 @@ import { DetailInterviewService } from '../../services/detail-interview/detail-i
   templateUrl: './interview-detail.component.html',
   styleUrls: ['./interview-detail.component.scss'],
 })
-export class InterviewDetailComponent  implements OnInit {
+export class InterviewDetailComponent implements OnInit {
 
   detailInterview!: DetailInterviewModel;
   showError = true;
 
   constructor(private detailInterviewService: DetailInterviewService,
-              private route: ActivatedRoute) {
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    const local = localStorage.getItem('currentUser');
+    let currentUser: any;
+    if (local !== null) {
+      currentUser = JSON.parse(local);
+    }
     this.route.params.subscribe((params: { [x: string]: any; }) => {
       const idInterview = params['id'];
-      this.detailInterviewService.getDetailInterview(idInterview).subscribe(
+      this.detailInterviewService.getDetailInterview(idInterview, currentUser.id).subscribe(
         {
           next: (response: any) => {
             this.detailInterview = response;
