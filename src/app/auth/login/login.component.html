@@ -73,7 +73,8 @@
 
             <div class="login-container__btns">
               <button pButton pRipple type="button" [label]="'registrarme' | translate" class="p-button-outlined mr-5"
-                [routerLink]="['/']"></button>
+                (click)="goToRegister()"
+                [routerLink]="['/registrarme']"></button>
               <button pButton pRipple type="button" [label]="'ingresar' | translate" [disabled]="login!.invalid"
                 (click)="onSubmit()"></button>
             </div>
