@@ -10,6 +10,7 @@ import { TeamsService } from '../../services/teams/teams.service';
 import { TranslateService } from '@ngx-translate/core';
 import { PerformanceEvaluationService } from '../../services/test/performance-evaluation.service';
 import { DimensionModel } from '../../models/performance-evaluations';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-performance-evaluation',
@@ -94,7 +95,8 @@ export class PerformanceEvaluationComponent implements OnInit {
           team_id: this.teamId!.value,
           user_id: this.candidateId!.value,
           qualifying_user_id: this.user.id,
-          dimension_id: this.dimensionId!.value
+          dimension_id: this.dimensionId!.value,
+          hash: this.calculateHash()
         }
         this.performanceEvalService.registerPerformanceEval(performanceEvaluation).subscribe({
           next: (result) => {
@@ -156,6 +158,11 @@ export class PerformanceEvaluationComponent implements OnInit {
       });
     });
   }
+  private calculateHash(): string {
+    const concatenatedData = `${this.performance?.value}${this.observations?.value}${this.projectId?.value}${this.teamId?.value}${this.candidateId?.value}${this.user.id}${this.dimensionId?.value}`;
+    return CryptoJS.SHA256(concatenatedData).toString();
+  }
+
 
   get projectId() { return this.performanceEval.get('projectId'); }
   get teamId() { return this.performanceEval.get('teamId'); }
