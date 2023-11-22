@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { UpdateEducationComponent } from './update-education.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { of } from 'rxjs';
 
 describe('UpdateEducationComponent', () => {
   let component: UpdateEducationComponent;
@@ -10,7 +13,16 @@ describe('UpdateEducationComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ UpdateEducationComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [HttpClientTestingModule, TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useValue: {
+            getTranslation: (lang: string) => {
+              return of({ 'actualizar_educacion_confirmacion': '¿Desea actualizar la información de educación?' });
+            }
+          }
+        }
+      })],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UpdateEducationComponent);

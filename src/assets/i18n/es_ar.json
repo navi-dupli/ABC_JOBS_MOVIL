@@ -78,5 +78,10 @@
   "experiencia_laboral": "Experiencia laboral",
   "rol_desempenado": "Rol asignado / Cargo",
   "empresa": "Empresa",
-  "descripcion": "Descripción"
+  "descripcion": "Descripción",
+  "habilidades": "Habilidades",
+  "actualizacion_habilidades_correctamente": "La información de habilidades e idiomas se ha actualizado correctamente",
+  "actualizar_habilidades_confirmacion": "¿Desea registrar actualizar habilidades e idiomas?",
+  "actualizacion_experiencia_correctamente": "La información de experiencia laboral se ha actualizado correctamente",
+  "actualizar_experiencia_confirmacion": "¿Desea registrar la información de experiencia laboral?"
 }

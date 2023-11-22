@@ -39,6 +39,12 @@ export class MenuComponent {
       ]
     },
     {
+      label: 'completar-perfil',
+      items: [
+        { label: 'Completar perfil', icon: 'pi pi-fw pi-copy', routerLink: ['/completar-perfil'], scope: ['register:profile-candidate'] }
+      ]
+    },
+    {
       label: 'citas',
       items: [
         { label: 'citas', icon: 'pi pi-fw pi-calendar-times', routerLink: ['/listar-citas'], scope: ['view:appointment'] }
@@ -56,12 +62,7 @@ export class MenuComponent {
         { label: 'eva_desempenio', icon: 'pi pi-fw pi-check-circle', routerLink: ['/evaluar-desempeno'], scope: ['register:performance-evaluation'] }
       ]
     },
-    {
-      label: 'completar-perfil',
-      items: [
-        { label: 'Completar perfil', icon: 'pi pi-fw pi-copy', routerLink: ['/completar-perfil'], scope: ['register:profile-candidate'] }
-      ]
-    },
+
   ];
 
   logout() {

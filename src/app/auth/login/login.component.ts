@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
     private sessionService: SessionService) { }
 
   ngOnInit() {
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
+    if (hasReloaded == "false") {
+      window.location.reload();
+      sessionStorage.setItem('hasReloaded', 'true');
+    }
     this.login = new FormGroup({
       email: new FormControl('', [
         Validators.required,

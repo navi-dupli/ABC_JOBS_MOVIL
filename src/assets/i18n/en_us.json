@@ -79,5 +79,10 @@
   "experiencia_laboral": "Work experience",
   "rol_desempenado": "Role / Job",
   "empresa": "Company",
-  "descripcion": "Description"
+  "descripcion": "Description",
+  "habilidades": "Skills",
+  "actualizacion_habilidades_correctamente": "Skills and languages information has been successfully updated",
+  "actualizar_habilidades_confirmacion": "Do you want to register update skills and languages?",
+  "actualizacion_experiencia_correctamente": "Work experience information has been successfully updated",
+  "actualizar_experiencia_confirmacion": "Do you want to record work experience information?"
 }

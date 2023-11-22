@@ -56,7 +56,7 @@ export class AuthGuardService implements CanActivate {
         return false;
       }
     }
-    // usuario no logueado
+    sessionStorage.setItem('hasReloaded', 'false')
     this.router.navigate(['/iniciar-sesion']);
     return false;
   }

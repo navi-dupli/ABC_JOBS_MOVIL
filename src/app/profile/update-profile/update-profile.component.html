@@ -33,25 +33,43 @@
     <div class="flex justify-content-center surface-card mt-2 m-4">
       <form [formGroup]="profileSkills" (ngSubmit)="onSubmit()" class="w-full p-4">
         <div class="pt-4 ">
-          <p>{{'perfil_habilidades'|translate}}</p>
-          <label class=" block text-xl font-medium mb-2" for="select-languges">{{'idiomas'|translate}}</label>
-          <div >
-            <p-multiSelect name="languge" id="select-languges" [options]="langugesOptions" formControlName="languges"
-              [placeholder]="'seleccione_una_opcion'| translate" optionLabel="fullName"
-              class="multiselect-custom w-full " display="chip">
-            </p-multiSelect>
-          </div>
+          <p class="text-xl">{{'perfil_habilidades'|translate}}</p>
+          <div>
+            <label class=" block text-base font-medium mb-2" for="select-languges">{{'idiomas'|translate}}</label>
+            <div class="w-full">
+              <p-multiSelect name="languge" id="select-languges" [options]="langugesOptions" formControlName="languges"
+                [placeholder]="'seleccione_una_opcion'| translate" optionLabel="value"
+                class="multiselect-custom w-full " display="chip">
+              </p-multiSelect>
+            </div>
 
-          <div class="error-form" *ngIf="languges!.invalid && (languges!.dirty || languges!.touched)">
-            <span *ngIf="languges!.errors!.required">
-              {{'campo_obligatorio' | translate}}
-            </span>
+            <div class="error-form" *ngIf="languges!.invalid && (languges!.dirty || languges!.touched)">
+              <span *ngIf="languges!.errors!.required">
+                {{'campo_obligatorio' | translate}}
+              </span>
+            </div>
           </div>
-          <div class="flex justify-content-end">
-            <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-              [routerLink]="['/']">
+          <div class="mt-2">
+            <label class=" block text-base font-medium mb-2" for="select-languges">{{'habilidades'|translate}}</label>
+            <div class="w-full">
+              <p-multiSelect name="skill" id="select-skill" [options]="langugesOptions" formControlName="skils"
+                [placeholder]="'seleccione_una_opcion'| translate" optionLabel="value"
+                class="multiselect-custom w-full " display="chip">
+              </p-multiSelect>
+            </div>
+
+            <div class="error-form" *ngIf="skils!.invalid && (skils!.dirty || skils!.touched)">
+              <span *ngIf="skils!.errors!.required">
+                {{'campo_obligatorio' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="pt-4 flex justify-content-end">
+            <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate"
+              class="p-button-outlined mr-5 " [routerLink]="['/']">
             </button>
-            <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
+            <button pButton pRipple type="button" [disabled]="profileSkills.invalid" [label]="'guardar'|translate"
+              (click)="onSubmit()">
             </button>
           </div>
 
@@ -62,18 +80,55 @@
       </form>
 
     </div>
-    <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
-
-      <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-      [routerLink]="['/actualizar-educacion']">
-    </button>
+    <div class="flex flex-wrap surface-card p-5 mt-2 m-4">
+      <div class=" w-full">
+        <p class="text-xl font-semibold ">{{'educacion'|translate}}</p>
+        <div *ngFor="let edu of education" class="mt-2">
+          <p-divider> </p-divider>
+          <div class="grid w-full flex pl-3 pr-3">
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-2xl text-gray-500">{{edu.title}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-sm">{{edu.startDate}} - {{edu.endDate}}</label>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+        <div class="pt-2 flex justify-content-end">
+          <button pButton pRipple type="button" [routerDirection]="'root'"
+            class="p-button-outlined w-4 flex justify-content-center" [routerLink]="['/actualizar-educacion']">
+            <i class="pi pi-plus "></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="flex align-items-center justify-content-center surface-card p-5 mt-2 m-4">
-
-      <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate" class="p-button-outlined mr-5"
-      [routerLink]="['/actualizar-experiencia-laboral']">
-    </button>
+    <div class="flex flex-wrap surface-card p-5 mt-2 m-4">
+      <div class=" w-full">
+        <p class="text-xl font-semibold ">{{'experiencia_laboral'|translate}}</p>
+        <div *ngFor="let edu of education" class="mt-2">
+          <p-divider> </p-divider>
+          <div class="grid w-full flex pl-3 pr-3">
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-2xl text-gray-500">{{edu.title}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-sm">{{edu.startDate}} - {{edu.endDate}}</label>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+        <div class="pt-2 flex justify-content-end">
+          <button pButton pRipple type="button" [routerDirection]="'root'"
+            class="p-button-outlined w-4 flex justify-content-center" [routerLink]="['/actualizar-experiencia-laboral']">
+            <i class="pi pi-plus "></i>
+          </button>
+        </div>
+      </div>
     </div>
+
   </div>
 </ion-content>
+<app-custom-dialog [dataModal]="dataModal" (closeModal)="closeModal($event)" (confirmModal)="confirmModal($event)">
+</app-custom-dialog>
 <app-footer></app-footer>

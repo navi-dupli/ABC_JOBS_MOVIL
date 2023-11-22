@@ -57,8 +57,6 @@ export class UpdateEducationComponent implements OnInit {
           iconModal: 'pi-check',
           typeModal: this.translate.instant("exito")
         }
-        sessionStorage.setItem('hasReloaded', 'false')
-        this.router.navigate(['/completar-perfil']);
       }
     }
   }
@@ -68,7 +66,8 @@ export class UpdateEducationComponent implements OnInit {
   closeModal(event: boolean) {
     this.loading = false;
     if (event) {
-      this.clearForm();
+      sessionStorage.setItem('hasReloaded', 'false')
+      this.router.navigate(['/completar-perfil']);
     }
   }
 

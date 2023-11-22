@@ -32,7 +32,7 @@
             for="empresa">{{'empresa'|translate}}</label>
 
           <div class="w-full">
-            <input id="empresa" type="text" [placeholder]="'rol_desempenado' | translate " pInputText [class]="'w-full ' + 
+            <input id="empresa" type="text" [placeholder]="'empresa' | translate " pInputText [class]="'w-full ' + 
                               (companyName!.invalid && (companyName!.dirty || companyName!.touched) ? 'ng-dirty' : '')"
               style="padding:1rem" formControlName="companyName">
           </div>
@@ -96,7 +96,7 @@
           <button pButton pRipple type="button" [label]="'cancelar'|translate" [routerDirection]="'root'" class="p-button-outlined mr-5"
             [routerLink]="['/completar-perfil']">
           </button>
-          <button pButton pRipple type="button" [label]="'guardar'|translate" (click)="onSubmit()">
+          <button pButton pRipple type="button" [disabled]="updateWorkExperiencie.invalid"  [label]="'guardar'|translate" (click)="onSubmit()">
           </button>
         </div>
 

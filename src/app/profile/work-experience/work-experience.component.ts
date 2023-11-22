@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomDialogModel } from '../../models/custom-dialog.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-work-experience',
@@ -17,6 +18,7 @@ export class WorkExperienceComponent implements OnInit {
   loading: boolean = false;
   constructor(
     private translate: TranslateService,
+    private router: Router,
   ) {
     this.updateWorkExperiencie = new FormGroup({
       roleName: new FormControl('', [Validators.required]),
@@ -29,7 +31,7 @@ export class WorkExperienceComponent implements OnInit {
 
   ngOnInit() { }
   onSubmit() {
-    const textModal = this.translate.instant("actualizar_educacion_confirmacion");
+    const textModal = this.translate.instant("actualizar_experiencia_confirmacion");
     const typeModal = this.translate.instant("confirmacion");
     this.dataModal = {
       displayModal: true,
@@ -42,11 +44,18 @@ export class WorkExperienceComponent implements OnInit {
     if (event) {
       if (this.updateWorkExperiencie.valid) {
         this.loading = true;
-
+        let experiencie = {
+          roleName: this.updateWorkExperiencie.get("roleName")?.value,
+          companyName: this.updateWorkExperiencie.get("companyName")?.value,
+          description: this.updateWorkExperiencie.get("description")?.value,
+          dateStart: this.updateWorkExperiencie.get("dateStart")?.value,
+          dateEnd: this.updateWorkExperiencie.get("dateEnd")?.value,
+        }
+        console.log(experiencie);
         this.loading = false;
         this.dataModal = {
           displayModal: true,
-          textModal: this.translate.instant("actualizacion_educacion_correctamente"),
+          textModal: this.translate.instant("actualizacion_experiencia_correctamente"),
           iconModal: 'pi-check',
           typeModal: this.translate.instant("exito")
         }
@@ -59,7 +68,8 @@ export class WorkExperienceComponent implements OnInit {
   closeModal(event: boolean) {
     this.loading = false;
     if (event) {
-      this.clearForm();
+      sessionStorage.setItem('hasReloaded', 'false')
+      this.router.navigate(['/completar-perfil']);
     }
   }
   get roleName() { return this.updateWorkExperiencie.get('roleName'); }
