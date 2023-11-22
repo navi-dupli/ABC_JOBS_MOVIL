@@ -3,7 +3,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { WorkExperienceComponent } from './work-experience.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 
 describe('WorkExperienceComponent', () => {
@@ -32,5 +32,15 @@ describe('WorkExperienceComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should handle onSubmit', () => {
+    const translateService = TestBed.inject(TranslateService);
+    translateService.use('es');
+    component.dataModal.textModal = translateService.instant('actualizar_experiencia_confirmacion');
+
+    component.onSubmit();
+
+    expect(component.dataModal.displayModal).toBe(true);
+    expect(component.dataModal.textModal).toBe('¿Desea registrar la información de experiencia laboral?');
   });
 });
