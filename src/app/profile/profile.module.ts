@@ -16,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FileUploadModule } from 'primeng/fileupload';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { DividerModule } from 'primeng/divider';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [UpdateProfileComponent, UpdateEducationComponent, WorkExperienceComponent],
@@ -34,7 +35,8 @@ import { DividerModule } from 'primeng/divider';
     CalendarModule,
     InputTextModule,
     FileUploadModule,
-    DividerModule
+    DividerModule,
+    DropdownModule,
   ], exports: [UpdateProfileComponent, UpdateEducationComponent, WorkExperienceComponent]
 })
 export class ProfileModule { }
