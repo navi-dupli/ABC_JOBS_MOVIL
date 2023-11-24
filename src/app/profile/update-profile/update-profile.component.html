@@ -74,7 +74,6 @@
                                 (experienceYears!.invalid && (experienceYears!.dirty || experienceYears!.touched) ? 'ng-dirty' : '')"
                 style="padding:1rem" formControlName="experienceYears">
             </div>
-
             <div class="error-form" *ngIf="experienceYears!.invalid && (experienceYears!.dirty || experienceYears!.touched)">
               <span *ngIf="experienceYears!.errors!.required">
                 {{'campo_obligatorio' | translate}}
