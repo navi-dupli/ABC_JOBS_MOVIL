@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./auth/login/login.module').then((m) => m.LoginModule),
   },
+  {
+    path: 'registrarme',
+    loadChildren: () => import('./auth/register-candidate/register-candidate.module').then(m => m.RegisterCandidateModule)
+  },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
   {

@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit {
     private sessionService: SessionService) { }
 
   ngOnInit() {
-    const hasReloaded = sessionStorage.getItem('hasReloaded');
-    if (hasReloaded == "false") {
+    const hasReloadedUser = sessionStorage.getItem('hasReloadedUser');
+    if (hasReloadedUser == "false" || hasReloadedUser == null) {
       window.location.reload();
-      sessionStorage.setItem('hasReloaded', 'true');
+      sessionStorage.setItem('hasReloadedUser', 'true');
     }
+
     this.login = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -65,6 +66,10 @@ export class LoginComponent implements OnInit {
         };
       },
     });
+  }
+
+  goToRegister() {
+    sessionStorage.setItem('hasReloadedUser', 'false');
   }
 
   get email() { return this.login.get('email'); }
