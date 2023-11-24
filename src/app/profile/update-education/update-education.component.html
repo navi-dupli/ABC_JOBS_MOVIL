@@ -47,7 +47,7 @@
   
           <div class="w-full">
             <p-dropdown [placeholder]="('seleccione_una_opcion' | translate)" [options]="educationTypeOptions"
-              optionValue="id" optionLabel="name" formControlName="educationType"
+              optionValue="name" optionLabel="name" formControlName="educationType"
               [class]="(educationType!.invalid && (educationType!.dirty || educationType!.touched) ? 'ng-dirty' : '')"></p-dropdown>
           </div>
   
