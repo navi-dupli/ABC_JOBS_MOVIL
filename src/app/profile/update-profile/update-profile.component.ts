@@ -30,6 +30,7 @@ export class UpdateProfileComponent implements OnInit {
     this.profileSkills = new FormGroup({
       languges: new FormControl(''),
       skils: new FormControl(''),
+      experienceYears: new FormControl('', [Validators.required, Validators.min(0)]),
     });
   }
   updateCandidate() {
@@ -39,6 +40,7 @@ export class UpdateProfileComponent implements OnInit {
     }
     this.profileService.getCandidate(this.currentUser.id).subscribe(result => {
       this.candidate = result;
+      this.profileSkills.get("experienceYears")?.setValue(this.candidate.experienceYears);
       this.getLanguges();
       this.getSkils();
     })
@@ -80,6 +82,7 @@ export class UpdateProfileComponent implements OnInit {
         let skilsAndLanguges = {
           languages: this.profileSkills.get("languges")?.value,
           abilities: this.profileSkills.get("skils")?.value,
+          experienceYears: this.profileSkills.get("experienceYears")?.value
         }
         const local = localStorage.getItem('currentUser');
         if (local !== null) {
@@ -142,4 +145,5 @@ export class UpdateProfileComponent implements OnInit {
 
   get languges() { return this.profileSkills.get('languges'); }
   get skils() { return this.profileSkills.get('skils'); }
+  get experienceYears() { return this.profileSkills.get('experienceYears'); }
 }
