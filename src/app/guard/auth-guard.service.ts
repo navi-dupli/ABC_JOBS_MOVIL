@@ -34,6 +34,9 @@ export class AuthGuardService implements CanActivate {
   {
     url: '/evaluar-desempeno',
     scope: ['register:performance-evaluation']
+  },{
+    url: '/completar-perfil',
+    scope: ['register:profile-candidate']
   }
   ]
 
@@ -53,7 +56,7 @@ export class AuthGuardService implements CanActivate {
         return false;
       }
     }
-    // usuario no logueado
+    sessionStorage.setItem('hasReloaded', 'false')
     this.router.navigate(['/iniciar-sesion']);
     return false;
   }

@@ -73,6 +73,7 @@ export class AddCandidateTeamComponent implements OnInit {
         this.teamsService.addMemberToTeam(this.addMember.value).subscribe( {
           next: (result: any) => {
             if (result) {
+              this.loading = false;
               this.dataModal = {
                 displayModal: true,
                 textModal: this.translate.instant("asignar_candidatos_correctamente"),
@@ -82,6 +83,7 @@ export class AddCandidateTeamComponent implements OnInit {
             }
           },
           error: (e: any) => {
+            this.loading = false;
             this.dataModal = {
               displayModal: true,
               textModal: this.translate.instant("error_asignar_candidatos"),

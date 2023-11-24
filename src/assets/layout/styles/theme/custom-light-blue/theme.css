@@ -5077,16 +5077,18 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-divider .p-divider-content {
-    background-color: #fff
+    background-color: #fff;
 }
+
 
 .p-divider.p-divider-horizontal {
     margin: 1.25rem 0;
-    padding: 0 1.25rem
+    padding: 0 1.25rem;
+    color: var(--gray-200)
 }
 
-.p-divider.p-divider-horizontal:before {
-    border-top: 1px #e2e8f0
+.p-divider-solid.p-divider-horizontal:before {
+    border-top-width: thin;
 }
 
 .p-divider.p-divider-horizontal .p-divider-content {
