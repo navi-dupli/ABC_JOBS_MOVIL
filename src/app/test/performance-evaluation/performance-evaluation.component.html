@@ -10,7 +10,7 @@
 <div class="flex justify-content-center mt-5">
   <div class="flex flex-column justify-content-center surface-card p-5 w-9 register-performace-test">
     <form [formGroup]="performanceEval" (ngSubmit)="onSubmit()">
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2" for="project">{{'proyecto'|translate}}</label>
 
         <div class="w-full">
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2" for="team">{{'equipo'|translate}}</label>
 
         <div class="w-full">
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2" for="search-candidate">{{'candidato'|translate}}</label>
 
         <div class="w-full">
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2" for="search-candidate">{{'dimension'|translate}}</label>
 
         <div class="w-full">
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2" for="search-candidate">{{'desempenio'|translate}}</label>
 
         <div class="w-full">
@@ -100,12 +100,12 @@
         </div>
       </div>
 
-      <div class="mb-6">
+      <div class="mb-4">
         <label class="w-full block text-xl font-medium mb-2"
           for="search-candidate">{{'observaciones'|translate}}</label>
 
         <div class="w-full">
-          <input id="observations" type="text" [placeholder]="'observaciones' | translate " pInputText [class]="'w-full ' + 
+          <input id="observations" type="text" [placeholder]="'observaciones' | translate " pInputText [class]="'w-full ' +
                       (observations!.invalid && (observations!.dirty || observations!.touched) ? 'ng-dirty' : '')"
             style="padding:1rem" formControlName="observations">
         </div>

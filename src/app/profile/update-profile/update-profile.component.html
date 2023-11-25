@@ -1,0 +1,174 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title id="title_result_interview">{{ 'completar_perfil' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content-ion-content">
+  <div *ngIf="candidate" class="update-profile flex flex-column justify-content-center  pb-5 mb-5 mt-4">
+    <div class="flex justify-content-center surface-card p-5 mt-2 m-4">
+      <div class="grid w-full flex">
+        <div class="col-12 flex justify-content-center">
+          <img [src]="candidate.picture" alt="{{'imagen_perfil'|translate}}">
+        </div>
+        <div class="col-12 flex justify-content-center pt-2">
+          <label class="font-semibold text-2xl m-0">{{candidate.names}} {{candidate.surnames}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-id-card"></i> {{candidate.nameIdentification}}.
+            {{candidate.identification}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-phone"></i> {{candidate.phone}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-inbox"></i> {{candidate.email}}</label>
+        </div>
+        <div class="col-12 flex justify-content-start pt-2">
+          <label class="text-sm"><i class="pi pi-map-marker"></i> {{candidate.location?.nameCountry}},
+            {{candidate.location?.nameCity}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-content-center surface-card mt-2 m-4">
+      <form [formGroup]="profileSkills" (ngSubmit)="onSubmit()" class="w-full p-4">
+        <div class="pt-4 ">
+          <p class="text-xl">{{'perfil_habilidades'|translate}}</p>
+          <div>
+            <label class=" block text-base font-medium mb-2" for="select-languges">{{'idiomas'|translate}}</label>
+            <div class="w-full">
+              <p-multiSelect name="languge" id="select-languges" [options]="languageOptions!" formControlName="languges"
+                [placeholder]="'seleccione_una_opcion'| translate" optionLabel="name" optionValue="code"
+                class="multiselect-custom w-full " display="chip">
+              </p-multiSelect>
+            </div>
+
+            <div class="error-form" *ngIf="languges!.invalid && (languges!.dirty || languges!.touched)">
+              <span *ngIf="languges!.errors!.required">
+                {{'campo_obligatorio' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <label class=" block text-base font-medium mb-2" for="select-languges">{{'habilidades'|translate}}</label>
+            <div class="w-full">
+              <p-multiSelect name="skill" id="select-skill" [options]="abilityOptions!" formControlName="skils"
+                [placeholder]="'seleccione_una_opcion'| translate" optionLabel="name" optionValue="id"
+                class="multiselect-custom w-full " display="chip">
+              </p-multiSelect>
+            </div>
+
+            <div class="error-form" *ngIf="skils!.invalid && (skils!.dirty || skils!.touched)">
+              <span *ngIf="skils!.errors!.required">
+                {{'campo_obligatorio' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <label class="w-full block text-xl font-medium mb-2" for="role">{{'anos_experiencia'|translate}}</label>
+
+            <div class="w-full">
+              <input id="experienceYears" type="number" [placeholder]="'anos_experiencia' | translate " pInputText [class]="'w-full ' + 
+                                (experienceYears!.invalid && (experienceYears!.dirty || experienceYears!.touched) ? 'ng-dirty' : '')"
+                style="padding:1rem" formControlName="experienceYears">
+            </div>
+            <div class="error-form" *ngIf="experienceYears!.invalid && (experienceYears!.dirty || experienceYears!.touched)">
+              <span *ngIf="experienceYears!.errors!.required">
+                {{'campo_obligatorio' | translate}}
+              </span>
+              <span *ngIf="experienceYears!.errors!.min">
+                {{'error_formato_anos_experiencia' | translate}}
+              </span>
+            </div>
+          </div>
+          <div class="pt-4 flex justify-content-end">
+            <button pButton pRipple type="button" [routerDirection]="'root'" [label]="'cancelar'|translate"
+              class="p-button-outlined mr-5 " [routerLink]="['/']">
+            </button>
+            <button pButton pRipple type="button" [disabled]="profileSkills.invalid" [label]="'guardar'|translate"
+              (click)="onSubmit()">
+            </button>
+          </div>
+
+          <div class="mx-auto mt-3 w-6" *ngIf="loading">
+            <p-progressBar mode="indeterminate"></p-progressBar>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="flex flex-wrap surface-card p-5 mt-2 m-4">
+      <div class=" w-full">
+        <p class="text-xl font-semibold ">{{'educacion'|translate}}</p>
+        <div *ngFor="let edu of candidate.education" class="mt-2">
+          <p-divider> </p-divider>
+          <div class="grid w-full flex pl-3 pr-1">
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-xl font-semibold text-gray-500">{{edu.title}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-base text-gray-500">{{edu.institution}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-sm text-gray-500">{{edu.type}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-sm">{{edu.dateInit}} - {{edu.dateEnd}}</label>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+        <div class="pt-2 flex justify-content-end">
+          <button pButton pRipple type="button" [routerDirection]="'root'"
+            class="p-button-outlined w-4 flex justify-content-center" [routerLink]="['/actualizar-educacion']">
+            <i class="pi pi-plus "></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap surface-card p-5 mt-2 m-4">
+      <div class=" w-full">
+        <p class="text-xl font-semibold ">{{'experiencia_laboral'|translate}}</p>
+        <div *ngFor="let exp of candidate.experiences" class="mt-2">
+          <p-divider> </p-divider>
+          <div class="grid w-full flex pl-3 pr-1">
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-xl font-semibold text-gray-500">{{exp.job}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-base text-gray-500">{{exp.company}}</label>
+            </div>
+            <div class="col-12 flex justify-content-start pt-2">
+              <label class="text-sm">{{exp.dateInit}} - {{exp.dateEnd}}</label>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+        <div class="pt-2 flex justify-content-end">
+          <button pButton pRipple type="button" [routerDirection]="'root'"
+            class="p-button-outlined w-4 flex justify-content-center"
+            [routerLink]="['/actualizar-experiencia-laboral']">
+            <i class="pi pi-plus "></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div *ngIf="!candidate" class="w-full h-full py-8 surface-ground px-3 sm:px-4">
+    <div class="text-center">
+      <img src="assets/images/logo.png" alt="Logo" class="mb-3" />
+    </div>
+    <div class="text-center mb-5">
+      <img src="assets/images/nombre.png" alt="Nombre empresa" class="mb-3" />
+    </div>
+    <div class="mx-auto mt-3 w-6" *ngIf="loading">
+      <p-progressBar mode="indeterminate"></p-progressBar>
+    </div>
+  </div>
+</ion-content>
+<app-custom-dialog [dataModal]="dataModal" (closeModal)="closeModal($event)" (confirmModal)="confirmModal($event)">
+</app-custom-dialog>
+<app-footer></app-footer>
