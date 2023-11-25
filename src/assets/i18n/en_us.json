@@ -74,6 +74,9 @@
   "fecha_nacimiento": "Date of birth",
   "repetir_contrasena": "Repeat password",
   "no_coincide_contrasena": "Password does not match",
+  "registrar_candidato_confirmacion": "Would you like to register as a candidate?",
+  "registrar_candidato_exitoso": "You have successfully registered as a candidate",
+  "registrar_candidato_fallido": "There was an error when registering as a candidate",
   "telefono": "Phone",
   "pais": "Country",
   "region": "Region",
@@ -109,5 +112,6 @@
   "la_fecha_inicio_no_puede_ser_mayor_a_la_fecha_fin": "The start date cannot be greater than the end date",
   "error_actualizando_informacion": "There was an error updating the information",
   "anos_experiencia": "Years of experience",
-  "error_formato_anos_experiencia": "Incorrect format, value must posivite number"
+  "error_formato_anos_experiencia": "Incorrect format, value must posivite number",
+  "aceptar": "Accept"
 }

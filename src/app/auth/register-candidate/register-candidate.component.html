@@ -1,6 +1,6 @@
 <ion-content  class="content">
     <div class="register-container ">
-      <div class="surface-ground h-full flex justify-content-center min-h-screen min-w-screen overflow-hidden">
+      <div class="surface-ground h-full flex justify-content-center min-h-screen min-w-screen overflow-hidden register-container-card">
         <div class="flex flex-column justify-content-center surface-card register-pad">
 
             <div class="register-container__language">
@@ -179,7 +179,7 @@
                                     </span>
         
                                     <span *ngIf="phone?.errors?.pattern">
-                                        {{ 'error_formato_texto' | translate }}
+                                        {{ 'error_formato_calificacion' | translate }}
                                     </span>
 
                                     <span *ngIf="phone?.errors?.maxlength">
@@ -346,7 +346,7 @@
                                 </div>
         
                                 <div
-                                    class="error-form"
+                                    class="error-form w-15rem"
                                     *ngIf="email?.invalid && (email?.dirty || email?.touched)">
                                     <span *ngIf="email?.errors?.required">
                                         {{ 'campo_obligatorio' | translate }}
