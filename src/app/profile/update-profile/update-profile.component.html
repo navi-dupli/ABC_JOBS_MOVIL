@@ -27,8 +27,8 @@
           <label class="text-sm"><i class="pi pi-inbox"></i> {{candidate.email}}</label>
         </div>
         <div class="col-12 flex justify-content-start pt-2">
-          <label class="text-sm"><i class="pi pi-map-marker"></i> {{candidate.location.nameCountry}},
-            {{candidate.location.nameCity}}</label>
+          <label class="text-sm"><i class="pi pi-map-marker"></i> {{candidate.location?.nameCountry}},
+            {{candidate.location?.nameCity}}</label>
         </div>
       </div>
     </div>
@@ -164,8 +164,8 @@
     <div class="text-center mb-5">
       <img src="assets/images/nombre.png" alt="Nombre empresa" class="mb-3" />
     </div>
-    <div class="text-center">
-      <label class=" text-2xl font-bold">{{ 'sin_informacion' | translate }}</label>
+    <div class="mx-auto mt-3 w-6" *ngIf="loading">
+      <p-progressBar mode="indeterminate"></p-progressBar>
     </div>
   </div>
 </ion-content>
